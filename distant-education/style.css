@@ -1,0 +1,30 @@
+.subject-download {
+    cursor: pointer;
+    border-radius: 0;
+}
+
+.subject-download:hover {
+    background-color: transparent;
+}
+
+.subject-download a {
+    padding: var(--clamp-4) var(--clamp-6);
+    border-radius: var(--clamp-3);
+    transition: 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.subject-download:hover a {
+    background: var(--color-background-hover);
+    svg {
+        color: var(--color-text-primary);
+    }
+}
+
+@media (max-width: 880px) {
+    .subject-download a {
+        padding: var(--clamp-1) var(--clamp-3);
+    }
+}

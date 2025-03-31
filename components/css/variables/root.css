@@ -64,9 +64,3 @@ transform: rotate(270deg);
         --align-left: right;
     }
 }
-
-@media (hover: none) {
-    *:hover {
-      all: unset !important;
-    }
-  }

@@ -29,6 +29,21 @@ td {
     transition: 0.3s ease-in-out;
 }
 
+td > div {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    gap: var(--clamp-2);
+}
+
+td p:first-child{
+    width: 100%;
+}
+
+table p {
+    width: fit-content;
+}
+
 th, td {
     border: 1px solid rgba(132, 132, 132, 0.136);
 }

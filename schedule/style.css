@@ -25,6 +25,7 @@ td > div {
     flex-wrap: wrap;
     display: flex;
     justify-content: center;
+    gap: var(--clamp-2);
 }
 
 td p:first-child{
@@ -37,10 +38,6 @@ th, td {
 
 table p {
     width: fit-content;
-}
-
-table p:last-child::before {
-    content: ", ";
 }
 
 td {

@@ -28,7 +28,7 @@ body {
 
 /* Left Side */
 .left {
-    background: url('https://alfloyem.github.io/New-UNEC/images/login/login-background.webp') center/cover no-repeat;
+    background: url('https://kriptokoin.com/wp-content/uploads/2022/04/altcoins-in-the-basket-of-institutional-investors-announced-gCXKe3qV-1200x755.jpg.webp') center/cover no-repeat;
     border-radius: var(--clamp-6);
     height: 100%;
 }
@@ -42,7 +42,7 @@ body {
     border-radius: var(--clamp-6);
 }
 
-.left svg {
+.left img {
     max-width: 80%;
     max-height: 80%;
     z-index: 1;
@@ -91,46 +91,52 @@ input {
     border-radius: var(--clamp-3);
     background: var(--color-background-secondary);
     color: var(--color-text-secondary);
-    transition: border-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+    color: var(--color-text-primary);
+    font-size: var(--clamp-4);
 }
 
-input::placeholder:hover,
 input:hover {
-    color: var(--color-primary);
     border: 1px solid var(--color-border-hover);
 }
 
 input::placeholder {
     color: var(--color-text-secondary);
-    font-family: var(--fontfamily);
 }
 
 input:focus {
     border: 1px solid var(--color-primary);
+}
+
+input:focus-visible {
+    outline: none;
+    border: 1px solid var(--color-primary);
     color: var(--color-primary);
+    box-shadow: none;
+    color: var(--color-text-primary);
 }
 
 .password-input {
     position: relative;
 }
 
-.show-password {
+.password-input svg {
     position: absolute;
-    top: 0px;
+    top: 50%;
+    transform: translateY(-50%);
     right: var(--clamp-3);
-    height: 100%;
-    display: flex !important;
-    justify-content: center;
-    align-items: center;
-    font-size: var(--text-size-secondary);
+    font-size: var(--clamp-6);
     cursor: pointer;
-    user-select: none;
     color: var(--color-icon-primary);
-    transition: color 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
 }
 
-.show-password:hover {
+.password-input svg:hover {
     color: var(--color-state-hover);
+}
+
+.hide-password {
+    display: none;
 }
 
 .password-recovery {
@@ -140,7 +146,7 @@ input:focus {
     text-align: right;
     color: var(--color-primary);
     text-decoration: none;
-    transition: color 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
 }
 
 .password-recovery::after {
@@ -150,8 +156,8 @@ input:focus {
     height: 1.5px;
     bottom: -2px;
     right: 0px;
-    background-color: var(--color-state-hover);
-    transition: width 0.3s ease-in-out;
+    background-color: var(--color-primary);
+    transition: 0.3s ease-in-out;
 }
 
 .password-recovery:hover::after {
@@ -159,7 +165,7 @@ input:focus {
 }
 
 .password-recovery:hover {
-    color: var(--color-state-hover);
+    color: var(--color-primary);
 }
 
 .password-recovery:focus-visible::after {
@@ -172,7 +178,7 @@ input:focus {
     gap: var(--clamp-6);
 }
 
-.button-container a {
+.button-container button {
     text-align: center;
     width: 100%;
     padding: var(--clamp-4);
@@ -181,10 +187,10 @@ input:focus {
     font-size: var(--clamp-5);
     cursor: pointer;
     font-family: var(--fontfamily);
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    transition: 0.3s ease-in-out;
 }
 
-.button-container a:focus-visible {
+.button-container button:focus-visible {
     outline: 4px solid var(--color-state-focus);
     background: none;
     color: var(--color-primary);
@@ -196,17 +202,16 @@ input:focus {
 }
 
 #sign-in:hover {
-    background: var(--color-state-hover);
+    background: var(--color-primary-hover);
 }
 
 #sign-up {
     background: var(--color-background-secondary);
-    border: 1px solid var(--color-border-default);
-    color: var(--color-primary);
+    color: var(--color-text-primary);
 }
 
 #sign-up:hover {
-    background: var(--color-background-secondary-hover);
+    background: var(--color-background-hover);
 }
 
 @media (max-width: 992px) {

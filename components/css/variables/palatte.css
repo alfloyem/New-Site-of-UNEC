@@ -61,7 +61,7 @@
   --color-state-active: rgba(203, 213, 225, 0.10); 
   --color-state-focus: rgba(191, 219, 254, 0.75); 
   --color-state-disabled: rgba(30, 41, 59, 0.38);
-  --color-overlay: rgba(68, 68, 68, 0.15);
+  --color-overlay: rgba(0, 0, 0, 0.25);
   --color-overlay-viewer: #2C2C2C;
   --color-toolbar-background: rgba(30, 41, 59, 0.30);
 
@@ -146,7 +146,7 @@
   --color-state-active: rgba(74, 144, 226, 0.10);
   --color-state-focus: rgba(74, 144, 226, 0.50);
   --color-state-disabled: rgba(240, 240, 240, 0.38);
-  --color-overlay: rgba(0, 0, 0, 0.15);
+  --color-overlay: rgba(0, 0, 0, 0.5);
   --color-overlay-viewer: #2C2C2C;
   --color-toolbar-background: rgba(18, 18, 18, 0.30);
 
@@ -231,7 +231,7 @@
 --color-state-active: rgba(203, 213, 225, 0.10); 
 --color-state-focus: rgba(191, 219, 254, 0.75); 
 --color-state-disabled: rgba(30, 41, 59, 0.38);
---color-overlay: rgba(68, 68, 68, 0.15);
+--color-overlay: rgba(0, 0, 0, 0.25);
 --color-overlay-viewer: #2C2C2C;
 --color-toolbar-background: rgba(30, 41, 59, 0.30);
 
@@ -315,7 +315,7 @@
 --color-state-active: rgba(74, 144, 226, 0.10);
 --color-state-focus: rgba(74, 144, 226, 0.50);
 --color-state-disabled: rgba(240, 240, 240, 0.38);
---color-overlay: rgba(0, 0, 0, 0.15);
+--color-overlay: rgba(0, 0, 0, 0.5);
 --color-overlay-viewer: #2C2C2C;
 --color-toolbar-background: rgba(18, 18, 18, 0.30);
 

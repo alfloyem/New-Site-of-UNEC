@@ -102,10 +102,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 }
 
-
   // 4. Sıralama İşlevi
   function handleSorting() {
-    document.querySelectorAll('th').forEach(th => {
+    document.querySelectorAll('thead th').forEach(th => {
       let isAsc = true;
       
       th.addEventListener('click', function() {
@@ -170,6 +169,8 @@ document.addEventListener('DOMContentLoaded', function() {
       alert(buttonElement.getAttribute("name"));
     }, 300);
   };
+
+  
 
   // 6. Reset İşlemi
   function handleResetFilter() {
@@ -342,12 +343,12 @@ document.getElementById('ok-text').addEventListener('click', function() {
 });
 
 // Helper function to get dropdown value
-function getDropdownValue(dropdown, trimFirstThree = false) {
+function getDropdownValue(dropdown) {
   if (!dropdown) return '';
   const selected = dropdown.querySelector('.selected');
   if (!selected) return '';
   
-  const text = selected.textContent.trim();
-  return trimFirstThree ? text.substring(3) : text;
+  return selected.textContent.trim();
 }
+
 });
