@@ -1,0 +1,206 @@
+body {
+    font-family: var(--fontfamily);
+    background: var(--color-background-secondary);
+    height: 100dvh;
+}
+    
+main {
+    padding: var(--clamp-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--clamp-6);
+    background: var(--color-background-secondary);
+    position: relative;
+}
+    
+nav{
+    position: sticky;
+    top: 0;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--color-background);
+    padding: var(--rem-6);
+    z-index: 500;
+    gap: var(--clamp-3);
+}
+
+.navbar{
+    color: var(--color-text-primary);
+}
+
+.navbar a,
+.navbar button {
+    background: transparent;
+    border-radius: 50%;
+    transition: 0.3s ease-in-out;
+    padding: var(--clamp-2);
+    padding-bottom: var(--clamp-1);
+    svg {
+        color: var(--color-text-primary);
+        width: var(--clamp-6);
+        height: var(--clamp-6);
+    }
+}
+
+.navbar a:hover,
+.navbar button:hover {
+    background: var(--color-background-hover);
+}
+
+.category-container::-webkit-scrollbar {
+    display: none;
+}
+
+.category-container {
+    display: flex;
+    user-select: none;
+    width: calc(100dvw - 2* var(--clamp-6));
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: var(--clamp-2);
+}
+
+.category-container > span {
+    color: var(--color-text-secondary);
+    padding: var(--clamp-2) var(--clamp-3);
+    font-size: var(--clamp-4);
+    border-radius: var(--clamp-2);
+    cursor: pointer;
+    text-wrap: nowrap;
+    transition: 0.3s ease-in-out;
+}
+
+.category-container > span:hover {
+    background: var(--color-background-hover);
+    color: var(--color-text-primary);
+}
+
+.category-container .selected {
+    color: var(--color-text-primary);
+    background: var(--color-background);
+}
+
+.category-container .selected:hover {
+    background: var(--color-background) !important;
+}
+
+.notification-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--clamp-5);
+    color: var(--color-text-primary);
+}
+
+.notification {
+    background: var(--color-background);
+    padding: var(--clamp-6);
+    display: flex;
+    gap: var(--clamp-3);
+    border-radius: var(--clamp-3);
+    cursor: pointer;
+}
+
+.notification:hover p,
+.notification:hover time {
+    color: var(--color-text-primary)
+}
+
+.was-read.notification {
+    * {
+        color: var(--color-text-secondary) !important;
+    }
+    .icon {
+        background: var(--color-background-secondary) !important;
+        opacity: 0.45;
+    }
+    .content {
+        opacity: 0.45;
+    }
+}
+
+
+.icon {
+    background: var(--color-background-secondary);
+    padding: var(--clamp-3);
+    padding-bottom: var(--clamp-2);
+    height: fit-content;
+    width: fit-content;
+    border-radius: 50%;
+    svg {
+    margin-top: -1px;
+        width: var(--clamp-6);
+        height: var(--clamp-6);
+    }
+}
+
+
+.important-text .icon {
+    background: var(--color-error-background);
+    svg {
+        color: var(--color-error);
+    }
+}
+.stabil-text .icon {
+    background: var(--color-stabil-background);
+    svg {
+        color: var(--color-stabil);
+    }
+}
+.warning-text .icon {
+    background: var(--color-warning-background);
+    svg {
+        color: var(--color-warning);
+    }
+}
+.success-text .icon {
+    background: var(--color-success-background);
+    svg {
+        color: var(--color-success);
+    }
+}
+
+
+.content header {
+    font-weight: var(--medium);
+    font-size: var(--clamp-4);
+}
+
+.details {
+    display: flex;
+    gap: var(--clamp-1);
+    font-size: var(--clamp-3);
+    color: var(--color-text-secondary);
+    margin-top: calc(var(--clamp-1)*2/3);
+    user-select: none;
+}
+
+.details time {
+    transition: 0.3s ease-in-out
+}
+
+.details span:last-child {
+    font-weight: var(--medium);
+}
+
+
+.important-text .details span:last-child {
+    color: var(--color-error );
+}
+.stabil-text .details span:last-child {
+    color: var(--color-stabil );
+}
+.warning-text .details span:last-child {
+    color: var(--color-warning );
+}
+.success-text .details span:last-child {
+    color: var(--color-success );
+}
+
+.content p {
+    margin-top: var(--clamp-3);
+    color: var(--color-text-secondary);
+    font-size: var(--clamp-4);
+    transition: 0.3s ease-in-out;
+}

@@ -1,0 +1,21 @@
+.details {
+    font-size: var(--clamp-4);
+    margin-bottom: var(--clamp-6);
+    time, span {
+        text-wrap: nowrap;
+    }
+    span:last-child {
+        color: var(--color-error);
+    }
+}
+
+p {
+    font-weight: var(--normal);
+    font-size: var(--clamp-5) !important;
+    color: var(--color-text-primary) !important;
+}
+
+a,
+a:visited {
+    color: var(--color-link);
+}

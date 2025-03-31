@@ -1,0 +1,99 @@
+h4 {
+    flex-grow: 1;
+    color: var(--color-text-primary);
+}
+
+table {
+    border-radius: var(--clamp-4);
+    background: var(--color-background);
+    padding: var(--clamp-2);
+    font-size: var(--clamp-4);
+    width: 100%;
+    border-collapse: collapse;
+    border: hidden;
+}
+
+th {
+    color: var(--color-text-primary);
+    cursor: pointer;
+    padding: var(--clamp-2);
+    transition: 0.3s ease-in-out;
+    flex-grow: 1;
+}
+
+td > div {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+}
+
+td p:first-child{
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid rgba(132, 132, 132, 0.136);
+}
+
+table p {
+    width: fit-content;
+}
+
+table p:last-child::before {
+    content: ", ";
+}
+
+td {
+    text-align: center;
+    color: var(--color-text-secondary);
+    padding: var(--clamp-4) var(--clamp-2);
+    cursor: default;
+    transition: 0.3s ease-in-out;
+}
+
+th, td {
+    border: 1px solid rgba(132, 132, 132, 0.136);
+}
+
+.object-header {
+    margin-bottom: var(--clamp-1);
+    color: var(--color-text-primary);
+    font-weight: var(--bold);
+}
+
+.selector {
+    display: flex;
+    gap: var(--clamp-2);
+}
+
+input[type="radio"] {
+    display: none; 
+}
+
+.weekselector {
+    padding: var(--clamp-2) var(--clamp-4);
+    background: var(--color-background);
+    border-radius: var(--clamp-2);
+    color: var(--color-text-primary);
+    font-size: var(--clamp-4);
+    user-select: none;
+    text-align: center;
+    transition: 0.15s ease-in-out;
+    cursor: pointer;
+}
+
+input[type="radio"]:checked + .weekselector {
+    background: var(--color-primary);
+    color: var(--color-text-contrast);
+}
+
+.topweek, .subweek {
+    
+    width: step15;
+}
+
+@media (max-width: 880px) {
+    .weekselector {
+        flex-grow: 1;
+    }
+}

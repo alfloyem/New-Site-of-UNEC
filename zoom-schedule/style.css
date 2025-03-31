@@ -1,0 +1,40 @@
+h4 {
+    flex-grow: 1;
+    color: var(--color-text-primary);
+}
+
+table {
+    border-radius: var(--clamp-4);
+    background: var(--color-background);
+    padding: var(--clamp-2);
+    font-size: var(--clamp-4);
+    width: 100%;
+    border-collapse: collapse;
+    border: hidden;
+}
+
+th {
+    color: var(--color-text-primary);
+    cursor: pointer;
+    padding: var(--clamp-2);
+    transition: 0.3s ease-in-out;
+    flex-grow: 1;
+}
+
+td {
+    text-align: center;
+    color: var(--color-text-secondary);
+    padding: var(--clamp-4) var(--clamp-2);
+    cursor: default;
+    transition: 0.3s ease-in-out;
+}
+
+th, td {
+    border: 1px solid rgba(132, 132, 132, 0.136);
+}
+
+.object-header {
+    margin-bottom: var(--clamp-1);
+    color: var(--color-text-primary);
+    font-weight: var(--bold);
+}

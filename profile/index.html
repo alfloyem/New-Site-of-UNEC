@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="az"></html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Azərbaycan Dövlət Iqtisad Universiteti ( Unec ) Tələbənin Şəxsi Kanineti">
+    <meta name="keywords" content="Azərbaycan Dövlət İqtisad Universiteti, UNEC, Tələbə, Şəxsi Kaninet, Tələbənin Şəxsi Kanineti, Sidebar Components, Navigation, Dropdown, Navbar, English: Student Portal, Personal Dashboard, Turkish: Öğrenci Paneli, Yan Menü, Russian: Студенческий кабинет, Навигация, Универсitet, Education, Academic">
+    <link rel="icon" href="../components/img/favicon.ico" type="image/x-icon">
+    <title id="my-profile">Profilim</title>
+    <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+    <link rel="stylesheet" href="../components/css/variables/root.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <a title="back" href="#" onclick="history.back()"><span class="iconify d270" data-icon="iconamoon:arrow-up-2-bold"></span></a>
+        <header id="my-profile">Profilim</header>
+        <a style="opacity: 0;"><span class="iconify d270" data-icon="iconamoon:arrow-up-2-bold"></span></a>
+    </nav>
+    <main>
+        <div class="left-side">
+            <div class="profile-header">
+                <div class="profile-photo-container">
+                    <img id="profilePhoto" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Profil Şəkli">
+                    <div id="change-image" class="photo-overlay" onclick="document.getElementById('photoInput').click()">
+                        Şəkli dəyişdir
+                    </div>
+                    <input type="file" id="photoInput" class="file-input" accept="image/*">
+                </div>
+                <div class="profile-info">
+                    <span id="studies" class="status-badge status-active">Təhsil alır</span> 
+                    <h2>Əhməd Nəzərov Akif</h2>
+                    <p id="digital-economics">Rəqəmsal İqtisadiyyat</p>
+                    <p id="it">584-2 • İnformasiya Təhlükəsizliyi</p>
+                </div>
+            </div>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label id="birth-date" for="birthDate">Doğum Tarixi</label>
+                    <input type="date" name="birthDate" value="1995-05-15" disabled>
+                </div>
+
+                <div class="form-group">
+                    <label id="citizenship" for="citizenship">Vətəndaşlıq</label>
+                    <input type="text" name="citizenship" value="Azərbaycan" disabled>
+                </div>
+
+                <div class="form-group">
+                    <label id="gender" for="gender">Cinsiyyət</label>
+                    <input type="text" name="gender" value="Kişi" disabled>
+                </div>
+            </div>
+        </div>
+        <form>
+            <div class="form-container">
+                <label id="corporative-email">Korporativ E-mail<span class="iconify" data-icon="material-symbols:edit-outline-rounded"></span></label>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label id="email" for="email">E-mail</label>
+                        <input type="email" name="email" value="ehmed.nezerov@unec.edu.az">
+                    </div>
+
+                    <div class="form-group">
+                        <label id="email-password" for="emailPassword">E-mail şifrəsi</label>
+                        <input type="password" name="emailPassword" value="ehmed1den8e">
+                    </div>
+                </div>
+            </div>
+            <div class="form-container">
+                <label id="entry-info">Giriş Məlumatları<span class="iconify" data-icon="material-symbols:edit-outline-rounded"></span></label>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label id="username" for="password">İstifadəçi Adı</label>
+                        <input type="text" value="Əhməd.39">
+                    </div>
+
+                    <div class="form-group">
+                        <label id="password" for="confirmPassword">Şifrə</label>
+                        <input type="password" name="confirmPassword" value="ehmed8den1e">
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <button id="cancel" type="button" class="button button-secondary">
+                    Ləğv et
+                </button>
+                <button id="submit" type="submit" class="button button-primary">
+                    Saxla
+                </button>
+            </div>
+        </form>
+    </main>
+
+    <footer id="birlab" class="footer">
+        © 2025 Unec & Birlab | Bütün Hüquqlar Qorunur
+    </footer>
+    <script src="../components/js/language.js"></script>
+    <script src="../components/js/theme.js"></script>
+</body>
+</html>

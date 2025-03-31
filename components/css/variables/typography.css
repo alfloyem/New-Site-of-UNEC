@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+  --fontfamily: "Inter", serif;
+  --text-size-primary: 16px; 
+  --text-size-secondary: 20px;
+  --thin: 100;
+  --extra-light: 200;
+  --light: 300;
+  --regular: 400;
+  --medium: 500;
+  --semi-bold: 600;
+  --bold: 700;
+  --extra-bold: 800;
+  --black: 900;
+}
+
+h1 {
+  font-size: var(--clamp-10);
+}
+h2 {
+  font-size: var(--clamp-9);
+}
+h3 {
+  font-size: var(--clamp-8);
+}
+h4 {
+  font-size: var(--clamp-7);
+}
+h5 {
+  font-size: var(--clamp-5);
+}
+h6 {
+  font-size: var(--clamp-2);
+}

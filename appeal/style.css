@@ -1,0 +1,23 @@
+#upload-popup > div {
+    display: flex;
+    flex-wrap: wrap;
+    header {
+        width: 100%;
+    }
+}
+
+#upload-popup .custom-dropdown {
+    flex-grow: 1;
+    flex-basis: 32%;
+    transition: width 0s;
+}
+
+@media (max-width: 480px) {
+    #upload-popup .custom-dropdown {
+    flex-basis: 100%;
+}
+}
+
+.survey-buttons {
+    width: 100%;
+}

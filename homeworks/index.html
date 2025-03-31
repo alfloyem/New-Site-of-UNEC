@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Azərbaycan Dövlət Iqtisad Universiteti ( Unec ) Tələbənin Şəxsi Kanineti">
+    <meta name="keywords" content="Azərbaycan Dövlət İqtisad Universiteti, UNEC, Tələbə, Şəxsi Kaninet, Tələbənin Şəxsi Kanineti, Sidebar Components, Navigation, Dropdown, Navbar, English: Student Portal, Personal Dashboard, Turkish: Öğrenci Paneli, Yan Menü, Russian: Студенческий кабинет, Навигация, Универсitet, Education, Academic">
+    <link rel="icon" href="../components/img/favicon.ico" type="image/x-icon">
+    <title id="sidebar-homeworks">Ev tapşırığı</title>
+    <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+    <link rel="stylesheet" href="../components/css/variables/root.css">
+    <link rel="stylesheet" href="../components/css/invariant-components/navbar.css">
+    <link rel="stylesheet" href="../components/css/invariant-components/sidebar.css">
+    <link rel="stylesheet" href="../components/css/invariant-components/table.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="close-sidebar">
+  <script src="../components/js/theme.js"></script>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <!-- Toggle Button -->
+    <button onclick=toggleSidebar() id="sidebar-toggle-button">
+      <span class="iconify" data-icon="ci:hamburger-md"></span>
+    </button>
+    <div style="flex-grow: 1;"></div>
+    <!-- Logo Container -->
+    <div class="logo-container" title="Azərbaycan Dövlət İqtisad Universiteti - UNEC">
+      <img src="../components/img/emblem.svg" alt="emblem">
+      <span>Azərbaycan Dövlət İqtisad Universiteti</span>
+    </div>
+    <div style="flex-grow: 1;"></div>
+    <!-- Notification Container -->
+    <div class="notification-container">
+        <button id="navbar-menu-toggle" class="notification-toggle">
+          <span class="iconify" data-icon="line-md:bell-loop"></span>
+        </button>
+        <div class="navbar-dropdown-menu" id="notification-menu">
+          <div class="notification-header">
+            <h6 id="navbar-notification-header">Bildirişlər</h6>
+            <a href="/notification/">
+              <span>Hamısı</span>
+            <span class="iconify d90" data-icon="iconamoon:arrow-up-2-bold"></span>
+            </a>
+          </div>
+          <div class="notification-container">
+            <a href="/notification/000001" class="notification important-text">
+              <div class="icon">
+                <span class="iconify" data-icon="bx:error"></span>
+              </div>
+              <div class="content">
+                <header>Dərslər təxirə salınacaq</header>
+                <div class="details">
+                  <time>37 dəqiqə əvvəl</time>
+                  <span>•</span>
+                  <span>Mühüm bildirişlər</span>
+                </div>
+                <p>24 fevral hava şəraiti ilə əlaqədar dərslər online qaydada keçiriləcək.</p>
+              </div>
+            </a>
+            <a class="notification warning-text was-read">
+              <div class="icon">
+                <span class="iconify" data-icon="wpf:survey"></span>
+              </div>
+              <div class="content">
+                <header>Qadın tələbələr arasında gender bərabərliyi</header>
+                <div class="details">
+                  <time>6 saat əvvəl</time>
+                  <span>•</span>
+                  <span>Anket</span>
+                </div>
+                <p>UNEC-in xanım tələbələrinin nəzərinə! ...</p>
+              </div>
+            </a>
+            <a class="notification stabil-text">
+              <div class="icon">
+                <span class="iconify" data-icon="material-symbols:work-outline"></span>
+              </div>
+              <div class="content">
+                <header>Satış mütəxəssisi vakansiyası</header>
+                <div class="details">
+                  <time>3 gün əvvəl</time>
+                  <span>•</span>
+                  <span>Karyera</span>
+                </div>
+                <p>Əziz UNEC tələbələri! “ALCO” MMC UNEC tələbə və məzunları üçün ...</p>
+              </div>
+            </a>
+          </div>
+        </div>
+    </div>
+    <!-- Profile Container -->
+    <div class="profile-container">
+      <button id="navbar-menu-toggle" class="profile-button">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Profile">
+      </button>
+      <div class="navbar-dropdown-menu" id="profile-menu">
+          <div class="profile-info">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Profile" class="profile-avatar">
+              <div class="profile-details">
+                  <div class="profile-name">Əhməd Nəzərov</div>
+                  <div id="economy" class="profile-username">İqtisadiyyat</div>
+              </div>
+          </div>
+          <a draggable="false" href="/profile" class="category-dropdown-button">
+            <span class="iconify" data-icon="iconamoon:profile"></span>
+            <span id="my-profile">Profilim</span>
+          </a>
+          <div id="language-menu" class="category-dropdown-button">
+            <span class="iconify" data-icon="famicons:language"></span>
+            <span id="language">Dil</span>
+            <span class="arrow-2 d90 iconify" data-icon="iconamoon:arrow-up-2-bold"></span>
+          </div>
+          <div id="theme-menu" class="category-dropdown-button">
+            <span class="iconify" data-icon="pajamas:appearance"></span>
+            <span id="appearance">Görünüş</span>
+            <span class="arrow-2 d90 iconify" data-icon="iconamoon:arrow-up-2-bold"></span>
+          </div>
+          <a draggable="false" href="/settings" class="category-dropdown-button">
+            <span class="iconify" data-icon="uil:setting"></span>
+            <span id="settings">Parametrlər</span>
+          </a>
+          <a draggable="false" href="/help-center" class="category-dropdown-button">
+            <span class="iconify" data-icon="material-symbols:help-outline-rounded"></span>
+            <span id="help-center">Yardım Mərkəzi</span>
+          </a>
+          <a draggable="false" href="/login" id="exit-account-button" class="category-dropdown-button">
+            <span class="iconify" data-icon="material-symbols:exit-to-app-rounded"></span>
+            <span id="exit-account">Hesabdan Çıx</span>
+          </a>
+      </div>
+      <div class="navbar-dropdown-menu" id="navbar-language">
+        <div class="navbar-submenu-header">
+          <button class="return-profile"><span class="iconify" data-icon="solar:arrow-left-outline"></span></button>
+          <div id="language" class="profile-name-secondary">Dil</div>
+      </div>
+        <button id="lang-az" class="category-dropdown-button">
+          <span class="iconify navbar-unchecked" data-icon="ic:round-check"></span>
+          <span>Azərbaycan</span>
+        </button>
+        <button id="lang-en" class="category-dropdown-button">
+          <span class="iconify navbar-unchecked" data-icon="ic:round-check"></span>
+          <span>English</span>
+        </button>
+        <button id="lang-tr" class="category-dropdown-button">
+          <span class="iconify navbar-unchecked" data-icon="ic:round-check"></span>
+          <span>Türk</span>
+        </button>
+        <button id="lang-ru" class="category-dropdown-button">
+          <span class="iconify navbar-unchecked" data-icon="ic:round-check"></span>
+          <span>Русский</span>
+        </button>
+    </div>
+    <div class="navbar-dropdown-menu" id="navbar-theme">
+      <div class="navbar-submenu-header">
+        <button class="return-profile"><span class="iconify" data-icon="solar:arrow-left-outline"></span></button>
+        <div id="appearance" class="profile-name-secondary">Görünüş</div>
+    </div>
+      <button id="theme-auto" class="category-dropdown-button">
+        <span class="iconify navbar-checked" data-icon="ic:round-check"></span>
+        <span id="auto">Auto</span>
+      </button>
+      <button id="theme-dark" class="category-dropdown-button">
+        <span class="iconify navbar-unchecked" data-icon="ic:round-check"></span>
+        <span id="dark">Tünd</span>
+      </button>
+      <button id="theme-light" class="category-dropdown-button">
+        <span class="iconify navbar-unchecked" data-icon="ic:round-check"></span>
+        <span id="light">Açıq</span>
+      </button>
+    </div>
+    </div>
+  </nav>
+  <!-- SIDEBAR -->
+  <aside id="sidebar">
+    <ul class="sidebar-container">
+      <!-- Categoryes -->
+      <div class="sidebar-categories">
+          <div class="sidebar-categories-height" >
+            <li>
+              <button class="category-dropdown-button" onclick=toggleSubMenu(this)>
+                <span class="iconify" data-icon="mdi:calendar-outline"></span>
+                <span id="sidebar-header-calendar-and-schedules">Təqvim & Cədvəllər</span>
+                <span class="arrow-2 d180 iconify" data-icon="iconamoon:arrow-up-2-bold"></span>
+              </button>
+              <ul class="sub-menu">
+                <div>
+                    <a draggable="false" href="../academic-calendar/index.html">
+                      <span id="sidebar-academic-calendar">Akademik təqvim</span>
+                    </a>
+                  <a draggable="false" href="../schedule/index.html">
+                      <span id="sidebar-schedule">Dərs cədvəli</span>
+                    </a>
+                  <a draggable="false" href="../zoom-schedule/index.html">
+                      <span id="sidebar-zoom-schedule">Zoom cədvəli</span>
+                    </a>
+                  <span id="sidebar-header-calendar-and-schedules" class="close-visiable">Təqvim & Cədvəllər</span>
+                </div>
+              </ul>
+            </li>
+            <li>
+              <button class="category-dropdown-button" onclick=toggleSubMenu(this)>
+                <span class="iconify" data-icon="mdi:file-document-outline"></span>
+                <span id="sidebar-header-exams">İmtahanlar</span>
+                <span class="arrow-2 d180 iconify" data-icon="iconamoon:arrow-up-2-bold"></span>
+              </button>
+              <ul class="sub-menu">
+                <div>
+                  <a draggable="false" href="../exam-schedule/index.html">
+                      <span id="sidebar-exam-schedule">İmtahan cədvəli</span>
+                    </a>
+                  <a draggable="false" href="../exam-results/index.html">
+                      <span id="sidebar-exam-results">İmtahan nəticələri</span>
+                    </a>
+                  <a draggable="false" href="../exam-tests/index.html">
+                      <span id="sidebar-exam-tests">İmtahan Sualları</span>
+                    </a>
+                  <span id="sidebar-header-exams" class="close-visiable">İmtahanlar</span>
+                </div>
+              </ul>
+            </li>
+            <li>
+              <button class="category-dropdown-button" onclick=toggleSubMenu(this)>
+                <span class="iconify" data-icon="material-symbols:school-outline-rounded"></span>
+                <span id="sidebar-header-academic-works">Akademik İşlər</span>
+                <span class="arrow-2 d180 iconify" data-icon="iconamoon:arrow-up-2-bold"></span>
+              </button>
+              <ul class="sub-menu">
+                <div>
+                  <a draggable="false" href="../e-journal/index.html">
+                      <span id="sidebar-e-journal">Elektron jurnal</span>
+                    </a>
+                  <a draggable="false" href="../appeal/index.html">
+                      <span id="sidebar-appeal">Apellyasiya</span>
+                    </a>
+                  <a draggable="false" href="../certification/index.html">
+                      <span id="sidebar-certification">Sertifikatlaşdırma</span>
+                    </a>
+                  <span id="sidebar-header-academic-works" class="close-visiable">Akademik İşlər</span>
+                </div>
+              </ul>
+            </li>
+            <li>
+              <button class="category-dropdown-button" onclick=toggleSubMenu(this)>
+                <span class="iconify" data-icon="mdi:book-edit-outline"></span>
+                <span id="sidebar-header-tasks">Tapşırıqlar</span>
+                <span class="arrow-2 d180 iconify" data-icon="iconamoon:arrow-up-2-bold"></span>
+              </button>
+              <ul class="sub-menu">
+                <div>
+                  <a draggable="false" href="../independent-works/index.html">
+                      <span id="sidebar-independent-works">Sərbəst işlər</span>
+                    </a>
+                  <a draggable="false" href="../homeworks/index.html">
+                      <span id="sidebar-homeworks">Ev tapşırığı</span>
+                    </a>
+                  <span id="sidebar-header-tasks" class="close-visiable">Tapşırıqlar</span>
+                </div>
+              </ul>
+            </li>
+            <li>
+              <button class="category-dropdown-button" onclick=toggleSubMenu(this)>
+                <span class="iconify" data-icon="uil:desktop"></span>
+                <span id="sidebar-header-distant-education">Distant Təhsil</span>
+                <span class="arrow-2 d180 iconify" data-icon="iconamoon:arrow-up-2-bold"></span>
+              </button>
+              <ul class="sub-menu">
+                <div>
+                  <a draggable="false" href="../distant-education/index.html">
+                      <span id="sidebar-distant-education">Distant təhsil</span>
+                    </a>
+                  <a draggable="false" href="../distant-examination/index.html">
+                      <span id="sidebar-distant-examination">Distant imtahan</span>
+                    </a>
+                  <span id="sidebar-header-distant-education" class="close-visiable">Distant Təhsil</span>
+                </div>
+              </ul>
+            </li>
+            <li>
+              <button class="category-dropdown-button" onclick=toggleSubMenu(this)>
+                <span class="iconify" data-icon="majesticons:book-open-line"></span>
+                <span id="sidebar-header-educational-resources">Tədris Resursları</span>
+                <span class="arrow-2 d180 iconify" data-icon="iconamoon:arrow-up-2-bold"></span>
+              </button>
+              <ul class="sub-menu">
+                <div>
+                  <a draggable="false" href="../educational-files/index.html">
+                      <span id="sidebar-files">Tədris materialları</span>
+                    </a>
+                  <a draggable="false" target="_blank" href="https://library.unec.edu.az/">
+                      <span id="sidebar-e-library">E-kitabxana</span>
+                    </a>
+                  <span id="sidebar-header-educational-resources" class="close-visiable">Tədris Resursları</span>
+                </div>
+              </ul>
+            </li>
+            <li>
+              <button class="category-dropdown-button" onclick=toggleSubMenu(this)>
+                <span class="iconify" data-icon="tabler:tools"></span>
+                <span id="sidebar-header-services">Xidmətlər</span>
+                <span class="arrow-2 d180 iconify" data-icon="iconamoon:arrow-up-2-bold"></span>
+              </button>
+              <ul class="sub-menu">
+                  <div>
+                    <a draggable="false" class="disabled">
+                        <span id="sidebar-online-appeal">Online müraciət</span>
+                      </a>
+                    <a draggable="false" class="disabled">
+                        <span id="sidebar-rules">Qaydalar</span>
+                      </a>
+                    <a draggable="false" target="_blank" href="https://birpencere.unec.edu.az/index.php/az">
+                        <span id="sidebar-the-window-service">Bir pəncərə xidməti</span>
+                      </a>
+                    <span class="close-visiable">Xidmətlər</span>
+                  </div>
+                </ul>
+            </li>
+            <li>
+              <button class="category-dropdown-button" onclick=toggleSubMenu(this)>
+                <span class="iconify" data-icon="ph:student-bold"></span>
+                <span id="sidebar-header-student-help">Tələbə Dəstəyi</span>
+                <span class="arrow-2 d180 iconify" data-icon="iconamoon:arrow-up-2-bold"></span>
+              </button>
+              <ul class="sub-menu">
+                <div>
+                  <a draggable="false" href="../teacher-assessment-form/index.html">
+                      <span id="sidebar-teacher-assessment-form">Məmnunluq anketi</span>
+                    </a>
+                  <a draggable="false" href="../discussion-panel/index.html">
+                      <span id="sidebar-discussion-panel">Məsləhət-müzakirə paneli</span>
+                    </a>
+                  <span id="sidebar-header-student-help" class="close-visiable">Tələbə Dəstəyi</span>
+                </div>
+              </ul>
+            </li>
+            <li>
+              <button class="category-dropdown-button" onclick=toggleSubMenu(this)>
+                <span class="iconify" data-icon="material-symbols:finance-mode-rounded"></span>
+                <span id="sidebar-header-finance-and-programs">Maliyyə & Proqramlar</span>
+                <span class="arrow-2 d180 iconify" data-icon="iconamoon:arrow-up-2-bold"></span>
+              </button>
+              <ul class="sub-menu">
+                <div>
+                  <a draggable="false" target="_blank" href="https://e-ttkf.edu.az/">
+                      <span id="sidebar-education-student-credit-fund"><abbr title="Təhsil Tələbə Kredit Fondu">Təhsil Tələbə Kredit Fondu</abbr></span>
+                    </a>
+                  <a draggable="false" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSdhHBLC7ERSZ7nj2gOCbf8mc3se1NzwX8blispdrAJixyfJJw/viewform">
+                      <span id="sidebar-udid-program">UDİD programı</span>
+                    </a>
+                  <span id="sidebar-header-finance-and-programs" class="close-visiable">Maliyyə Proqramlar</span>
+                </div>
+              </ul>
+            </li>
+          </div>
+      </div>
+      <!-- Divider -->
+      <div class="divider">
+      </div>
+      <!-- Exit Account -->
+      <a href="../login" draggable="false" id="exit-account-button">
+        <span class="iconify" data-icon="material-symbols:exit-to-app-rounded"></span>
+        <span id="exit-account">Hesabdan Çıx</span>
+      </a>
+    </ul>
+    <!-- Overlay -->
+    <div onclick="toggleSidebar()" class="overlay"></div>
+  </aside>
+  <!-- MAIN -->
+  <main>
+
+    <!-- Header -->
+    <header>
+      <h4 id="sidebar-homeworks">Ev tapşırığı</h4>
+    </header>
+
+    <!-- Main Elements -->
+    <section class="main-elements">
+
+      <!-- !Filter Panel -->
+      <div class="filter" id="filter-popup">
+        <div>
+          <div>
+            <span class="filter-icon iconify" data-icon="majesticons:filter-line"></span>
+            <div id="filter-text" class="selected">Filtrlər</div>
+          </div>
+          
+          <!-- Years filter -->
+          <div class="filter-dropdown custom-dropdown" data-table-column="0">
+            <div class="selected">2024-2025</div>
+            <div class="dropdown-menu">
+              <div>2024-2025</div>
+              <div>2023-2024</div>
+              <div>2022-2023</div>
+              <div>2021-2022</div>
+              <div>2020-2021</div>
+              <div>2019-2020</div>
+            </div>
+            <span class="arrow d180 iconify" data-icon="iconamoon:arrow-up-2-bold"></span>
+          </div>
+
+          <!-- Semestr filter -->
+          <div class="filter-dropdown custom-dropdown" data-table-column="1">
+              <div class="selected">I <span id="semestr-text">Semestr</span></div>
+              <div class="dropdown-menu">
+                  <div>I <span id="semestr-text">Semestr</span></div>
+                  <div>II <span id="semestr-text">Semestr</span></div>
+              </div>
+            <span class="arrow d180 iconify" data-icon="iconamoon:arrow-up-2-bold"></span>
+          </div>
+
+          <!-- Reset filter -->
+          <button class="reset-filter">
+            <span id="clean-filter-text">Filtri Təmizlə</span>
+            <span class="iconify" data-icon="mi:delete"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- !Filter Toggle Button -->
+      <button onclick="togglePopup('filter-popup')" class="filter-mobile main-button-primary">
+          <span class="filter-icon iconify" data-icon="majesticons:filter-line"></span>
+          <span id="filter-text">Filtrlər</span>
+      </button>
+
+      <!-- ?Upload Toggle Button -->
+      <button onclick="togglePopup('upload-popup')" class="main-button-primary">
+        <span class="iconify" data-icon="material-symbols:upload-rounded"></span>
+        <span id="upload-text">Yüklə</span>
+      </button>
+
+      <!-- ?Upload Popup-->
+      <li class="section-popup" id="upload-popup">
+        <div>
+          <header>
+            <h5 id="upload-text">Yüklə</h5>
+          </header>
+          <div class="file-detail-container">
+            <div class="upload-file-container">
+              <div class="browse-document-container">
+                <svg width="578" height="253" viewBox="0 0 578 253" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <style>
+                      .clss-1 {
+                        fill: var(--color-primary);
+                      }
+                
+                      .clss-2 {
+                        fill: var(--color-secondary);
+                      }
+                
+                      .clss-5 {
+                        fill: var(--color-text-disabled);
+                      }
+                    </style>
+                  </defs>
+                  <path class="clss-5" d="M577.33 251.6C577.33 251.74 448.08 251.86 288.68 251.86C129.28 251.86 0 251.74 0 251.6C0 251.46 129.22 251.34 288.68 251.34C448.14 251.34 577.33 251.46 577.33 251.6Z" />
+                  <path class="clss-2" d="M31.9501 188.97C35.3301 189.09 38.5001 190.92 40.7301 193.47C42.9601 196.01 44.3301 199.21 45.2001 202.48C46.8901 208.8 45.8501 216.27 44.0501 222.56C37.2001 220.11 32.9801 212.81 31.0701 208.97C28.0501 202.9 26.2801 190.11 31.9401 188.97"/>
+                  <path class="clss-2" d="M53.91 230.22C51.75 227.12 51.7 222.81 53.41 219.43C55.12 216.06 58.4 213.63 62.01 212.52C63.68 212.01 65.62 211.79 67.07 212.76C68.43 213.67 69.02 215.45 68.84 217.07C68.66 218.69 67.84 220.18 66.87 221.49C63.54 226 59.49 229.75 53.91 230.21"/>
+                  <path class="clss-1" d="M54.66 251.35C54.66 251.35 54.52 250.89 54.35 250.04C54.17 249.1 53.93 247.89 53.65 246.44C53.11 243.41 52.25 239.1 52.9 234.34C53.52 229.6 55.41 225.54 57.39 223.12C58.36 221.9 59.3 221.03 59.99 220.5C60.32 220.22 60.62 220.05 60.8 219.91C60.99 219.78 61.1 219.72 61.11 219.74C61.18 219.82 59.51 220.86 57.66 223.33C55.79 225.76 53.99 229.74 53.37 234.41C52.73 239.08 53.52 243.35 53.98 246.39C54.22 247.92 54.42 249.16 54.54 250.02C54.65 250.88 54.7 251.36 54.66 251.36V251.35Z"/>
+                  <path class="clss-1" d="M34.1602 198.59C34.1602 198.59 34.2702 198.76 34.4402 199.11C34.6202 199.5 34.8602 200.01 35.1502 200.63C35.7502 201.96 36.6102 203.89 37.6402 206.28C39.7002 211.07 42.4602 217.73 45.3402 225.14C48.2202 232.56 50.6702 239.34 52.3702 244.26C53.2202 246.72 53.9002 248.72 54.3502 250.11C54.5602 250.77 54.7302 251.3 54.8602 251.71C54.9702 252.08 55.0202 252.27 55.0102 252.28C55.0002 252.29 54.9102 252.1 54.7702 251.74C54.6202 251.33 54.4202 250.81 54.1802 250.17C53.6602 248.75 52.9402 246.78 52.0602 244.37C50.2702 239.47 47.7702 232.72 44.9002 225.3C42.0202 217.89 39.3202 211.22 37.3402 206.4C36.3702 204.03 35.5702 202.09 34.9902 200.69C34.7302 200.05 34.5302 199.53 34.3702 199.13C34.2302 198.77 34.1702 198.58 34.1802 198.57L34.1602 198.59Z"/>
+                  <path class="clss-2" d="M46.5401 237.37C42.5001 230.5 34.9701 225.82 27.0201 225.24C25.0001 225.09 22.5601 225.43 21.6601 227.25C20.7601 229.07 21.9601 231.22 23.3401 232.72C29.0801 238.93 38.7801 241.1 46.6101 237.92"/>
+                  <path class="clss-1"d="M30.1001 230.66C30.1001 230.66 30.5501 230.65 31.3701 230.71C31.7801 230.74 32.2801 230.77 32.8501 230.88C33.4201 230.99 34.0801 231.05 34.7901 231.24C35.5001 231.41 36.2901 231.59 37.1001 231.88C37.9301 232.12 38.7801 232.48 39.6701 232.86C41.4301 233.66 43.3101 234.71 45.0901 236.07C46.8601 237.45 48.3501 238.99 49.5701 240.5C50.1501 241.27 50.7101 242.01 51.1501 242.76C51.6301 243.48 51.9901 244.2 52.3201 244.85C52.6801 245.49 52.8901 246.12 53.1301 246.65C53.3701 247.18 53.5101 247.66 53.6301 248.05C53.8701 248.83 53.9901 249.26 53.9601 249.27C53.8601 249.31 53.3701 247.56 52.0201 245C51.6701 244.37 51.3001 243.67 50.8101 242.97C50.3701 242.24 49.8101 241.53 49.2201 240.78C48.0101 239.31 46.5301 237.81 44.7901 236.45C43.0401 235.11 41.2101 234.07 39.4801 233.26C38.6101 232.88 37.7701 232.51 36.9601 232.26C36.1701 231.96 35.4001 231.77 34.7001 231.57C31.8901 230.86 30.0801 230.76 30.0901 230.66H30.1001Z"/>
+                  <path class="clss-1" d="M212.62 46.31L177.26 228.11L172.63 251.91L408.69 250.75C419.28 250.7 428.67 241.29 432.08 227.32L473.94 55.6801C476.53 45.0701 470.85 34.04 462.81 34.04L223.89 34.29C218.61 34.29 214 39.22 212.62 46.31Z"/>
+                  <g opacity="0.5">
+                  <path d="M212.62 46.31L177.26 228.11L172.63 251.91L408.69 250.75C419.28 250.7 428.67 241.29 432.08 227.32L473.94 55.6801C476.53 45.0701 470.85 34.04 462.81 34.04L223.89 34.29C218.61 34.29 214 39.22 212.62 46.31Z" fill="black"/>
+                  </g>
+                  <path class="clss-1" d="M386.05 215.79L361.06 14.3801C360.04 6.13011 353.46 -0.0298909 345.7 0.000109105L290.89 0.180109C286.83 0.190109 282.94 1.92011 280.06 4.98011L254.04 32.6401L101.61 33.4401C92.3 33.4901 85.14 42.3001 86.37 52.2101L109.58 238.36C110.61 246.6 117.17 252.75 124.92 252.73L390.57 252.21C420.16 252.82 422.98 244.09 422.98 244.09C389.07 251.6 386.05 215.82 386.05 215.8V215.79Z"/>
+                  <g opacity="0.5">
+                  <path d="M267.013 163.5C267.013 167.661 267 174.5 267 175.5C267 176.5 264.5 178.5 264 178.5C263.519 178.5 204 178.5 203 178.5C202 178.5 200 176.5 200 175.5M200.013 163.595V175.5M216 130C223.42 122.385 233.5 112 233.5 112M233.5 112L251 130M233.5 112V159" stroke="white" stroke-width="9.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </g>
+                  </svg>
+                <div class="bd-header">
+                  <span id="select-file-text">drag & drop or choose file</span>
+                </div>
+                <input type="file" id="fileInput" multiple = false accept=".pdf, .doc, .docx, .ppt, .pptx">
+              </div>
+              <div class="preview-document-container">
+                <div style="height: 4px;"></div>
+                <div class="pd-box">
+                  <div class="pd-icon-container">
+                    <span id="pd-pdf" class="iconify" data-icon="fluent:document-pdf-16-regular"></span>
+                    <span id="pd-powerpoint" class="iconify" data-icon="vscode-icons:file-type-powerpoint"></span>
+                    <span id="pd-word" class="iconify" data-icon="vscode-icons:file-type-word"></span>
+                    <span id="pd-excel" class="iconify" data-icon="vscode-icons:file-type-excel"></span>
+                  </div>
+                  <div class="pd-header">
+                    <div class="pd-file-name"></div>
+                    <div id="pd-size-progress"></div>
+                  </div>
+                  <button>
+                    <span class="iconify" data-icon="mi:delete"></span>
+                  </button>
+                </div>
+                <progress value="0" max="100"></progress>
+              </div>
+            </div>
+            <div class="dropdown-container">
+              <div class="custom-dropdown">
+                <div id="choose-subject" class="selected">Fənn seçin</div>
+                <div class="dropdown-menu">
+                    <div id="object-11">Kibertəhlükəsizliyin əsasları</div>
+                    <div id="object-13">Şəbəkənin əsasları</div>
+                    <div id="object-12">Xətti cəbr</div>
+                    <div id="object-10">ADİAK</div>
+                    <div id="object-8">XDİAK A2</div>
+                    <div id="object-9">Alqoritmin qurulması və analizi</div>
+                </div>
+                <span class="arrow d180 iconify" data-icon="iconamoon:arrow-up-2-bold"></span>
+              </div>
+            </div>
+          </div>
+          <div class="survey-buttons">
+            <div></div>
+            <button id="cancel-text" class="button-secondary">İmtina et</button>
+            <button id="ok-text" class="button-primary">Təsdiq et</button>
+          </div>
+        </div>
+      </li>
+      
+    </section>
+
+    <!-- Image -->
+    <div class="no-data-container">
+      <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 601.55 367.62">
+        <defs>
+          <style>
+            .clss-1 {
+              fill: var(--color-primary);
+            }
+      
+            .clss-2 {
+              fill: var(--color-secondary);
+              stroke: var(--color-text-disabled);
+              stroke-width: 2;
+            }
+      
+            .clss-3 {
+              fill: #fff;
+            }
+      
+            .clss-4 {
+              fill: #e0e0e0;
+            }
+      
+            .clss-5 {
+              fill: var(--color-text-disabled);
+            }
+      
+            .clss-6 {
+              opacity: .5;
+            }
+          </style>
+        </defs>
+        <g id="Background_Complete" data-name="Background Complete">
+          <g>
+            <rect class="clss-5" x="65.2" y="69.68" width="134.99" height="198.77" transform="translate(-71.6 102.31) rotate(-33.78)"/>
+            <g>
+              <polygon class="clss-4" points="186.09 206.32 184.81 214.2 129.03 206.16 130.31 198.28 186.09 206.32"/>
+              <polygon class="clss-4" points="158 178.2 166 179.36 157.13 234.28 149.12 233.12 158 178.2"/>
+            </g>
+            <path class="clss-4" d="M106.62,108.4c.08.12-11.16,7.78-25.11,17.11-13.95,9.33-25.32,16.8-25.4,16.68-.08-.12,11.16-7.78,25.11-17.11,13.95-9.33,25.32-16.8,25.4-16.68Z"/>
+            <path class="clss-4" d="M147.88,98.04c.08.12-18.62,12.77-41.76,28.24-23.15,15.48-41.97,27.93-42.05,27.81-.08-.12,18.61-12.76,41.76-28.25,23.14-15.48,41.97-27.93,42.05-27.81Z"/>
+            <path class="clss-4" d="M156.15,110.41c.08.12-18.62,12.77-41.76,28.24-23.15,15.48-41.97,27.93-42.05,27.81-.08-.12,18.61-12.76,41.76-28.25,23.14-15.48,41.97-27.93,42.05-27.81Z"/>
+            <path class="clss-4" d="M164.42,122.78c.08.12-18.62,12.77-41.76,28.24-23.15,15.48-41.97,27.93-42.05,27.81-.08-.12,18.61-12.76,41.76-28.25,23.14-15.48,41.97-27.93,42.05-27.81Z"/>
+            <path class="clss-4" d="M172.7,135.14c.08.12-18.62,12.77-41.76,28.24-23.15,15.48-41.97,27.93-42.05,27.81-.08-.12,18.61-12.76,41.76-28.25,23.14-15.48,41.97-27.93,42.05-27.81Z"/>
+          </g>
+          <g>
+            <rect class="clss-5" x="451.34" y="177.09" width="113.37" height="166.93" transform="translate(-59.11 326.42) rotate(-33.78)"/>
+            <g>
+              <polygon class="clss-4" points="552.87 291.84 551.8 298.46 504.95 291.71 506.02 285.09 552.87 291.84"/>
+              <polygon class="clss-4" points="529.27 268.23 536 269.2 528.54 315.32 521.82 314.35 529.27 268.23"/>
+            </g>
+            <path class="clss-4" d="M486.13,209.61c.08.12-9.35,6.57-21.07,14.4-11.72,7.84-21.28,14.09-21.36,13.97-.08-.12,9.35-6.57,21.07-14.41,11.71-7.83,21.28-14.09,21.36-13.97Z"/>
+            <path class="clss-4" d="M520.78,200.91c.08.12-15.61,10.76-35.05,23.76-19.44,13-35.26,23.44-35.34,23.32-.08-.12,15.61-10.75,35.05-23.76,19.43-13,35.26-23.44,35.34-23.32Z"/>
+            <path class="clss-4" d="M527.73,211.29c.08.12-15.61,10.76-35.05,23.76-19.44,13-35.26,23.44-35.34,23.32-.08-.12,15.61-10.75,35.05-23.76,19.43-13,35.26-23.44,35.34-23.32Z"/>
+            <path class="clss-4" d="M534.67,221.68c.08.12-15.61,10.76-35.05,23.75-19.44,13-35.26,23.44-35.34,23.32-.08-.12,15.61-10.75,35.05-23.76,19.43-13,35.26-23.44,35.34-23.32Z"/>
+            <path class="clss-4" d="M541.62,232.06c.08.12-15.61,10.76-35.05,23.76-19.44,13-35.26,23.44-35.34,23.32-.08-.12,15.61-10.75,35.05-23.76,19.43-13,35.26-23.44,35.34-23.32Z"/>
+          </g>
+          <g>
+            <rect class="clss-5" x="209.47" y="17.35" width="116.6" height="171.69" transform="translate(80.31 -114.08) rotate(28.14)"/>
+            <g>
+              <polygon class="clss-4" points="261.09 159.03 254.57 161.26 238.01 115.49 244.53 113.25 261.09 159.03"/>
+              <polygon class="clss-4" points="271.09 126.19 273.47 132.76 228.01 148.32 225.63 141.76 271.09 126.19"/>
+            </g>
+            <path class="clss-4" d="M303.39,58.65c-.08.15-10.51-5.27-23.29-12.11-12.79-6.84-23.08-12.5-23-12.65.08-.15,10.51,5.27,23.29,12.11,12.78,6.84,23.08,12.5,23,12.65Z"/>
+            <path class="clss-4" d="M328.06,85.88c-.08.15-17.34-8.92-38.54-20.26-21.21-11.34-38.34-20.66-38.26-20.81.08-.15,17.34,8.92,38.55,20.27,21.2,11.34,38.33,20.66,38.25,20.81Z"/>
+            <path class="clss-4" d="M322,97.22c-.08.15-17.34-8.92-38.54-20.26-21.21-11.34-38.34-20.66-38.26-20.81.08-.15,17.34,8.92,38.55,20.27,21.2,11.34,38.33,20.66,38.25,20.81Z"/>
+            <path class="clss-4" d="M315.94,108.55c-.08.15-17.34-8.92-38.54-20.26-21.21-11.34-38.34-20.66-38.26-20.81.08-.15,17.34,8.92,38.55,20.27,21.2,11.34,38.33,20.66,38.25,20.81Z"/>
+            <path class="clss-4" d="M309.88,119.88c-.08.15-17.34-8.92-38.54-20.26-21.21-11.34-38.34-20.66-38.26-20.81.08-.15,17.34,8.92,38.55,20.27,21.2,11.34,38.33,20.66,38.25,20.81Z"/>
+          </g>
+        </g>
+        <g id="Floor">
+          <path class="clss-2" d="M577.33,366.49c0,.14-129.25.26-288.65.26s-288.68-.12-288.68-.26,129.22-.26,288.68-.26,288.65.12,288.65.26Z"/>
+        </g>
+        <g id="Plant">
+          <g>
+            <path class="clss-1" d="M31.95,303.86c3.38.12,6.55,1.95,8.78,4.5,2.23,2.54,3.6,5.74,4.47,9.01,1.69,6.32.65,13.79-1.15,20.08-6.85-2.45-11.07-9.75-12.98-13.59-3.02-6.07-4.79-18.86.87-20"/>
+            <path class="clss-1" d="M53.91,345.11c-2.16-3.1-2.21-7.41-.5-10.79,1.71-3.37,4.99-5.8,8.6-6.91,1.67-.51,3.61-.73,5.06.24,1.36.91,1.95,2.69,1.77,4.31-.18,1.62-1,3.11-1.97,4.42-3.33,4.51-7.38,8.26-12.96,8.72"/>
+            <path class="clss-2" d="M54.66,366.24s-.14-.46-.31-1.31c-.18-.94-.42-2.15-.7-3.6-.54-3.03-1.4-7.34-.75-12.1.62-4.74,2.51-8.8,4.49-11.22.97-1.22,1.91-2.09,2.6-2.62.33-.28.63-.45.81-.59.19-.13.3-.19.31-.17.07.08-1.6,1.12-3.45,3.59-1.87,2.43-3.67,6.41-4.29,11.08-.64,4.67.15,8.94.61,11.98.24,1.53.44,2.77.56,3.63.11.86.16,1.34.12,1.34Z"/>
+            <path class="clss-2" d="M34.16,313.48s.11.17.28.52c.18.39.42.9.71,1.52.6,1.33,1.46,3.26,2.49,5.65,2.06,4.79,4.82,11.45,7.7,18.86,2.88,7.42,5.33,14.2,7.03,19.12.85,2.46,1.53,4.46,1.98,5.85.21.66.38,1.19.51,1.6.11.37.16.56.15.57s-.1-.18-.24-.54c-.15-.41-.35-.93-.59-1.57-.52-1.42-1.24-3.39-2.12-5.8-1.79-4.9-4.29-11.65-7.16-19.07-2.88-7.41-5.58-14.08-7.56-18.9-.97-2.37-1.77-4.31-2.35-5.71-.26-.64-.46-1.16-.62-1.56-.14-.36-.2-.55-.19-.56Z"/>
+            <path class="clss-1" d="M46.54,352.26c-4.04-6.87-11.57-11.55-19.52-12.13-2.02-.15-4.46.19-5.36,2.01-.9,1.82.3,3.97,1.68,5.47,5.74,6.21,15.44,8.38,23.27,5.2"/>
+            <path class="clss-2" d="M30.1,345.55s.45-.01,1.27.05c.41.03.91.06,1.48.17.57.11,1.23.17,1.94.36.71.17,1.5.35,2.31.64.83.24,1.68.6,2.57.98,1.76.8,3.64,1.85,5.42,3.21,1.77,1.38,3.26,2.92,4.48,4.43.58.77,1.14,1.51,1.58,2.26.48.72.84,1.44,1.17,2.09.36.64.57,1.27.81,1.8.24.53.38,1.01.5,1.4.24.78.36,1.21.33,1.22-.1.04-.59-1.71-1.94-4.27-.35-.63-.72-1.33-1.21-2.03-.44-.73-1-1.44-1.59-2.19-1.21-1.47-2.69-2.97-4.43-4.33-1.75-1.34-3.58-2.38-5.31-3.19-.87-.38-1.71-.75-2.52-1-.79-.3-1.56-.49-2.26-.69-2.81-.71-4.62-.81-4.61-.91Z"/>
+          </g>
+        </g>
+        <g id="Folder">
+          <g>
+            <path class="clss-1" d="M212.62,161.2l-35.36,181.8-4.63,23.8,236.06-1.16c10.59-.05,19.98-9.46,23.39-23.43l41.86-171.64c2.59-10.61-3.09-21.64-11.13-21.64l-238.92.25c-5.28,0-9.89,4.93-11.27,12.02Z"/>
+            <g class="clss-6">
+              <path d="M212.62,161.2l-35.36,181.8-4.63,23.8,236.06-1.16c10.59-.05,19.98-9.46,23.39-23.43l41.86-171.64c2.59-10.61-3.09-21.64-11.13-21.64l-238.92.25c-5.28,0-9.89,4.93-11.27,12.02Z"/>
+            </g>
+            <path class="clss-1" d="M386.05,330.68l-24.99-201.41c-1.02-8.25-7.6-14.41-15.36-14.38l-54.81.18c-4.06.01-7.95,1.74-10.83,4.8l-26.02,27.66-152.43.8c-9.31.05-16.47,8.86-15.24,18.77l23.21,186.15c1.03,8.24,7.59,14.39,15.34,14.37l265.65-.52c29.59.61,32.41-8.12,32.41-8.12-33.91,7.51-36.93-28.27-36.93-28.29Z"/>
+            <g class="clss-6">
+              <polygon class="clss-3" points="271.51 290.37 262.55 300 193.55 237.92 202.51 228.3 271.51 290.37"/>
+              <polygon class="clss-3" points="258.79 226.17 268.7 235.07 206.26 302.13 196.36 293.22 258.79 226.17"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+      <h4 id="no-data-text">Sorğunuza uyğun Nəticə tapılmadı</h4>
+    </div>
+
+    <!-- Table -->
+    <table>
+      <thead>
+        <tr>
+          <th id="year" data-type="text">İl</th>
+          <th id="semester" data-type="text">Semestr</th>
+          <th data-type="number">No</th>
+          <th id="subject" data-type="text">Fənn</th>
+          <th id="status" data-type="text">Status</th>
+          <th id="deadline" data-type="date">Son göndərilmə tarixi</th>
+          <th id="upload-date" data-type="date">Göndərilmə tarixi</th>
+          <th id="mark-date" data-type="datetime">Qiymətləndirmə tarixi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2024-2025</td>
+          <td id="I semester">I Semestr</td>
+          <td>1</td>
+          <td id="object-6">XDİAK-B1</td>
+          <td id="valuating">Qiymətləndirilir</td>
+          <td>2024-12-14</td>
+          <td>2024-12-04</td>
+          <td>2024-12-14 18:00</td>
+        </tr>
+        <tr>
+          <td>2024-2025</td>
+          <td id="I semester">I Semestr</td>
+          <td>2</td>
+          <td id="object-1">Riyazi analiz</td>
+          <td></td>
+          <td>2024-12-10</td>
+          <td>2024-12-08</td>
+          <td>2024-12-14 18:00</td>
+        </tr>
+        <tr>
+          <td>2024-2025</td>
+          <td id="I semester">I Semestr</td>
+          <td>3</td>
+          <td id="object-2">Proqramlaşdırmanın əsasları</td>
+          <td></td>
+          <td>2024-12-20</td>
+          <td>2024-12-04</td>
+          <td>2024-12-15 18:00</td>
+        </tr>
+        <tr>
+          <td>2024-2025</td>
+          <td id="I semester">I Semestr</td>
+          <td>4</td>
+          <td id="object-4">Mülki müdafiə</td>
+          <td id="valuating">Qiymətləndirilir</td>
+          <td>2024-12-14</td>
+          <td>2024-12-04</td>
+          <td>2024-12-14 18:00</td>
+        </tr>
+      </tbody>
+      <style>
+        td:nth-child(4),
+        th:nth-child(4) {
+          text-align: var(--align-left);
+        }
+        .file-detail-container {
+          flex-direction: column;
+        }
+      </style>
+    </table>
+
+  </main>
+  <!-- FOOTER -->
+  <footer></footer>
+  <!-- SCRIPTS -->
+   <script src="main.js"></script>
+  <script src="../components/js/navbar.js"></script>
+  <script src="../components/js/sidebar.js"></script>
+  <script src="../components/js/table.js"></script>
+  <script src="../components/js/language.js"></script>
+</body>
+</html>
