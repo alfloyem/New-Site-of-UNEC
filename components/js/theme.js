@@ -5,9 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
     setTheme(themeFromLocalStorage);
   }
 
-  const themeAutoButton = document.getElementById("theme-auto");
-  const themeDarkButton = document.getElementById("theme-dark");
-  const themeLightButton = document.getElementById("theme-light");
+  const themeAutoButton = document.getElementById("theme-auto") || document.getElementById("auto");
+  const themeDarkButton = document.getElementById("theme-dark") || document.getElementById("dark");
+  const themeLightButton = document.getElementById("theme-light") || document.getElementById("light");
 
   themeAutoButton.addEventListener("click", () => {
     setTheme("auto");
@@ -24,7 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
     updateNavbarChecked(themeLightButton);
   });
 
-  // Sayfa açıldığında localStorage'da kayıtlı tema varsa ona, yoksa "auto" seçili olacak
   if (themeFromLocalStorage === "dark") {
     updateNavbarChecked(themeDarkButton);
   } else if (themeFromLocalStorage === "light") {
@@ -49,16 +48,18 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function updateNavbarChecked(button) {
-    const allButtons = [themeAutoButton, themeDarkButton, themeLightButton];
-    allButtons.forEach((btn) => {
-      const icon = btn.querySelector('.iconify');
-      if (btn === button) {
-        icon.classList.remove('navbar-unchecked');
-        icon.classList.add('navbar-checked');
-      } else {
-        icon.classList.remove('navbar-checked');
-        icon.classList.add('navbar-unchecked');
-      }
-    });
+    setTimeout(() => {
+      const allButtons = [themeAutoButton, themeDarkButton, themeLightButton];
+      allButtons.forEach((btn) => {
+        const icon = btn.querySelector('.iconify');
+        if (btn === button) {
+          icon.classList.remove('navbar-unchecked');
+          icon.classList.add('navbar-checked');
+        } else {
+          icon.classList.remove('navbar-checked');
+          icon.classList.add('navbar-unchecked');
+        }
+      });
+    }, 100); // 100ms gecikme eklendi
   }
 });

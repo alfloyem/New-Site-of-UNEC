@@ -1,7 +1,6 @@
 body {
     font-family: var(--fontfamily);
-    background: var(--color-background-secondary);
-    height: 100dvh;
+    background: var(--color-background);
     display: grid;
     grid-template-rows: auto 1fr auto;
     margin: 0;
@@ -14,12 +13,12 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--color-background);
     padding: var(--rem-6);
     z-index: 500;
     gap: var(--clamp-3);
     color: var(--color-text-primary);
     border-bottom: 1px solid var(--color-border-default);
+    background: var(--color-background);
 }
 
 nav a,
@@ -50,6 +49,8 @@ main {
     display: flex;
     flex-direction: column;
     gap: var(--clamp-7);
+    margin: 0 var(--clamp-12);
+    transition: 0.3s ease-in-out, background 0s;
 }
 
 .settings-section {
@@ -72,17 +73,32 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: var(--clamp-4);
     padding: var(--clamp-4) var(--clamp-6);
     border-bottom: 1px solid var(--color-border-default);
-    transition: background 0.2s ease;
+    transition: 0.3s ease-in-out, border-color 0s;
 }
 
 .setting-item:last-child {
     border-bottom: none;
 }
 
-.setting-item:hover {
+.icon {
+    padding: var(--clamp-2);
+    padding-bottom: var(--clamp-1);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.icon:hover {
     background: var(--color-background-hover);
+}
+
+.icon svg {
+    width: var(--clamp-6);
+    height: var(--clamp-6);
+    color: var(--color-text-primary);
 }
 
 .setting-info {
@@ -204,33 +220,14 @@ input:checked + .slider:before {
     background: var(--color-background-secondary-hover);
 }
 
-.danger-zone {
-    background-color: var(--color-error-background);
-    border-color: var(--color-error);
+.deaktive {
+    cursor: not-allowed !important;
+    > * {
+        opacity: 0.5 !important;
+    }
 }
 
-.danger-zone .section-header {
-    background-color: var(--color-error-background-hover);
-    color: var(--color-error);
-    border-color: var(--color-error);
-}
-
-.danger-button {
-    background-color: transparent;
-    color: var(--color-error);
-    border: 1px solid var(--color-error);
-    padding: var(--clamp-2) var(--clamp-4);
-    border-radius: var(--clamp-2);
-    cursor: pointer;
-    transition: 0.3s ease;
-}
-
-.danger-button:hover {
-    background-color: var(--color-error);
-    color: white;
-}
-
-.footer {
+footer {
     background-color: var(--color-background);
     color: var(--color-text-primary);
     padding: var(--clamp-4) var(--clamp-6);
@@ -239,18 +236,10 @@ input:checked + .slider:before {
     border-top: 1px solid var(--color-border-default);
 }
 
-@media (max-width: 768px) {
-    .setting-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--clamp-4);
+@media (max-width: 880px) {
+    main {
+        margin: 0;
     }
-
-    .setting-control {
-        width: 100%;
-        justify-content: space-between;
-    }
-
     .button-container {
         flex-direction: column;
     }
@@ -258,7 +247,6 @@ input:checked + .slider:before {
     .button-secondary {
         order: 1;
     }
-
     .button {
         width: 100%;
         justify-content: center;

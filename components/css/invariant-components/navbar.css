@@ -173,12 +173,12 @@ content: "3";
 .notification-header {
     display: flex;
     align-items: center;
-    font-size: var(--clamp-4);
-    margin-bottom: var(--clamp-3);
+    font-size: var(--rem-4);
+    margin-bottom: var(--rem-3);
 }
 
 .notification-header h6{
-    font-size: var(--clamp-4);
+    font-size: var(--rem-4);
     flex: 1;
 }
 
@@ -191,7 +191,7 @@ content: "3";
 
 .notification-header a svg,
 .notification-header a span{
-    font-size: calc(var(--clamp-4)*3/4);
+    font-size: calc(var(--rem-4)*3/4);
     transition: 0.3s ease-in-out;
 
 }
@@ -204,16 +204,16 @@ content: "3";
 .notification-container {
     display: flex;
     flex-direction: column;
-    gap: var(--clamp-3);
+    gap: var(--rem-3);
     color: var(--color-text-primary);
 }
 
 .notification {
     background: var(--color-background-secondary);
-    padding: var(--clamp-3);
+    padding: var(--rem-3);
     display: flex;
-    gap: var(--clamp-2);
-    border-radius: var(--clamp-3);
+    gap: var(--rem-2);
+    border-radius: var(--rem-3);
     cursor: pointer;
 }
 

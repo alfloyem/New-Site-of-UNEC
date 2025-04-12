@@ -817,9 +817,44 @@ td:nth-child(3){
   gap: var(--clamp-8);
   flex-direction: column;
   align-items: center;
+  img {
+    height: var(--clamp-12);
+    width: var(--clamp-12);
+  }
   h4 {
     font-size: var(--clamp-6);
     margin-left: 0;
     text-align: center;
   }
+}
+
+.no-data-container-dark {
+  display: none;
+}
+
+body.light {
+  .no-data-container-light {
+    display: block;
+  }
+  .no-data-container-dark {
+    display: none;
+  }
+}
+
+body.dark {
+  .no-data-container-dark {
+    display: block;
+  }
+  .no-data-container-light {
+    display: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+    .no-data-container-dark {
+      display: block;
+    }
+    .no-data-container-light {
+      display: none;
+    }
 }

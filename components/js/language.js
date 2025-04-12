@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const storedLang = localStorage.getItem('language');
   const lang = storedLang || userLang;
   
-  const jsonFiles = ['table', 'navbar', 'sidebar', 'profile'].reduce((acc, key) => {
+  const jsonFiles = ['table', 'navbar', 'sidebar', 'profile', 'settings', 'help-center'].reduce((acc, key) => {
     acc[key] = `../components/localization/${key}.json`;
     return acc;
   }, {});
@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }, {});
         updateLanguage(mergedTranslations, lang);
       })
-      .catch(console.error);
   }
 
   function fetchJson(file) {

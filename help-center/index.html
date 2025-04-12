@@ -1,394 +1,185 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="az">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
     <link rel="stylesheet" href="../components/css/variables/root.css">
-    <style>
-        body {
-            font-family: var(--fontfamily);
-            background: var(--color-background-secondary);
-            color: var(--color-text-primary);
-            line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        nav {
-            position: sticky;
-            top: 0;
-            height: 70px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: var(--color-background);
-            padding: 0 var(--rem-6);
-            z-index: 500;
-            gap: var(--rem-3);
-            color: var(--color-text-primary);
-            border-bottom: 1px solid var(--color-border-default);
-        }
-        
-        nav a, nav button {
-            background: transparent;
-            border: none;
-            border-radius: 50%;
-            transition: 0.3s ease-in-out;
-            padding: var(--rem-2);
-            cursor: pointer;
-        }
-        
-        nav a:hover, nav button:hover {
-            background: var(--color-background-hover);
-        }
-        
-        nav header {
-            font-weight: var(--semi-bold);
-            font-size: var(--rem-5);
-        }
-        
-        .header-container {
-            background-color: var(--color-primary);
-            color: var(--color-text-contrast);
-            padding: var(--rem-8) var(--rem-6);
-            text-align: center;
-        }
-        
-        .header-container h1 {
-            font-size: var(--rem-7);
-            margin-bottom: var(--rem-3);
-        }
-        
-        .header-container p {
-            font-size: var(--rem-5);
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        main {
-            flex: 1;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: var(--rem-6);
-            width: 100%;
-        }
-        
-        .help-categories {
-            margin-top: var(--rem-6);
-        }
-        
-        details {
-            margin-bottom: var(--rem-4);
-            border: 1px solid var(--color-border-default);
-            border-radius: var(--rem-2);
-            background-color: var(--color-background);
-            overflow: hidden;
-        }
-        
-        details summary {
-            padding: var(--rem-4) var(--rem-5);
-            background-color: var(--color-background);
-            cursor: pointer;
-            font-weight: var(--semi-bold);
-            font-size: var(--rem-5);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background-color 0.3s ease;
-        }
-        
-        details summary:hover {
-            background-color: var(--color-background-hover);
-        }
-        
-        details summary::after {
-            content: "⌄";
-            font-size: var(--rem-6);
-            transition: transform 0.3s ease;
-        }
-        
-        details[open] summary::after {
-            transform: rotate(180deg);
-        }
-        
-        .help-items {
-            padding: var(--rem-4) var(--rem-5);
-        }
-        
-        .help-item {
-            padding: var(--rem-4);
-            border-bottom: 1px solid var(--color-border-default);
-        }
-        
-        .help-item:last-child {
-            border-bottom: none;
-        }
-        
-        .help-item h3 {
-            font-size: var(--rem-4);
-            margin-bottom: var(--rem-2);
-            color: var(--color-text-primary);
-        }
-        
-        .help-item p {
-            color: var(--color-text-secondary);
-            margin-bottom: var(--rem-3);
-        }
-        
-        .help-item a {
-            color: var(--color-link);
-            text-decoration: none;
-            font-weight: var(--medium);
-            transition: color 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-        }
-        
-        .help-item a:hover {
-            color: var(--color-link-hover);
-            text-decoration: underline;
-        }
-        
-        .help-item a::after {
-            content: "→";
-            margin-left: var(--rem-1);
-        }
-        
-        .search-bar {
-            display: flex;
-            margin: var(--rem-6) 0;
-            max-width: 600px;
-            width: 100%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .search-bar input {
-            flex: 1;
-            padding: var(--rem-3) var(--rem-4);
-            border: 1px solid var(--color-border-default);
-            border-radius: var(--rem-2) 0 0 var(--rem-2);
-            font-size: var(--rem-4);
-        }
-        
-        .search-bar button {
-            padding: var(--rem-3) var(--rem-5);
-            background-color: var(--color-primary);
-            color: var(--color-text-contrast);
-            border: none;
-            border-radius: 0 var(--rem-2) var(--rem-2) 0;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        
-        .search-bar button:hover {
-            background-color: var(--color-primary-hover);
-        }
-        
-        footer {
-            background-color: var(--color-background);
-            color: var(--color-text-primary);
-            padding: var(--rem-4) var(--rem-6);
-            text-align: center;
-            font-size: var(--rem-4);
-            border-top: 1px solid var(--color-border-default);
-        }
-        
-        @media (max-width: 768px) {
-            .header-container {
-                padding: var(--rem-6) var(--rem-4);
-            }
-            
-            .header-container h1 {
-                font-size: var(--rem-6);
-            }
-            
-            .header-container p {
-                font-size: var(--rem-4);
-            }
-            
-            main {
-                padding: var(--rem-4);
-            }
-            
-            details summary {
-                padding: var(--rem-4);
-                font-size: var(--rem-4);
-            }
-            
-            .help-items {
-                padding: var(--rem-3);
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav>
-        <a title="back" href="#" onclick="history.back()">←</a>
-        <header>Yardım Merkezi</header>
-        <div style="width: 24px;"></div>
+        <a title="geri" href="#" onclick="history.back()"><span class="iconify d270" data-icon="iconamoon:arrow-up-2-bold"></span></a>
+        <header id="help-center">Yardım Mərkəzi</header>
+        <a style="opacity: 0; cursor: default;"><span class="iconify d270" data-icon="iconamoon:arrow-up-2-bold"></span></a>
     </nav>
-    
+
     <div class="header-container">
-        <h1>Nasıl Yardımcı Olabiliriz?</h1>
-        <p>Sık sorulan sorular, kullanım kılavuzları ve sorun çözme yöntemlerini keşfedin</p>
+        <h1 id="hc-header">Necə Kömək Edə Bilərik?</h1>
+        <p id="hc-content">Tez-tez verilən suallar, istifadə təlimatları və problem həlli yollarını kəşf edin</p>
     </div>
     
     <main>
         <div class="search-bar">
-            <input type="text" placeholder="Arama yap...">
-            <button>Ara</button>
+            <input type="text">
+            <button>
+                <span class="iconify" data-icon="famicons:search"></span>
+            </button>
         </div>
         
         <div class="help-categories">
             <details open>
-                <summary>Hesap ve Giriş İşlemleri</summary>
+                <summary>
+                    <span id="hc-main-header-1">Hesab və Giriş Əməliyyatları</span>
+                    <span class="iconify d180" data-icon="iconamoon:arrow-up-2-bold"></span>
+                </summary>
                 <div class="help-items">
                     <div class="help-item">
-                        <h3>Şifremi unuttum, ne yapmalıyım?</h3>
-                        <p>Şifrenizi nasıl sıfırlayabileceğiniz ve hesabınıza tekrar erişim sağlayabileceğiniz hakkında bilgiler.</p>
-                        <a href="#">Şifre sıfırlama adımları</a>
+                        <h3 id="hc-sub-header-1-1">Şifrəmi unutmuşam, nə etməliyəm?</h3>
+                        <p id="hc-content-1-1">Şifrənizi necə sıfırlaya biləcəyiniz və hesabınıza təkrar giriş edə biləcəyiniz haqqında məlumatlar.</p>
+                        <a href="#" id="hc-link-1-1">Şifrə sıfırlama addımları</a>
                     </div>
                     <div class="help-item">
-                        <h3>Hesap bilgilerimi nasıl güncelleyebilirim?</h3>
-                        <p>Kişisel bilgilerinizi, e-posta adresinizi ve diğer hesap ayarlarınızı güncelleme adımları.</p>
-                        <a href="#">Hesap güncelleme kılavuzu</a>
+                        <h3 id="hc-sub-header-1-2">Hesab məlumatlarımı necə yeniləyə bilərəm?</h3>
+                        <p id="hc-content-1-2">Şəxsi məlumatlarınızı, e-poçt adresinizi və digər hesab ayarlarınızı yeniləmə addımları.</p>
+                        <a href="#" id="hc-link-1-2">Hesab yeniləmə təlimatı</a>
                     </div>
                     <div class="help-item">
-                        <h3>İki faktörlü doğrulama nedir ve nasıl etkinleştirilir?</h3>
-                        <p>Hesap güvenliğinizi artırmak için iki faktörlü doğrulama hakkında bilgi ve kurulum adımları.</p>
-                        <a href="#">İki faktörlü doğrulama kurulumu</a>
+                        <h3 id="hc-sub-header-1-3">İki faktorlu doğrulama nədir və necə aktivləşdirilir?</h3>
+                        <p id="hc-content-1-3">Hesab təhlükəsizliyinizi artırmaq üçün iki faktorlu doğrulama haqqında məlumat və quraşdırma addımları.</p>
+                        <a href="#" id="hc-link-1-3">İki faktorlu doğrulama quraşdırılması</a>
                     </div>
                     <div class="help-item">
-                        <h3>Giriş yapamıyorum, ne yapmalıyım?</h3>
-                        <p>Giriş yaparken karşılaşabileceğiniz sorunlar ve çözüm önerileri.</p>
-                        <a href="#">Giriş sorunları çözümleri</a>
+                        <h3 id="hc-sub-header-1-4">Giriş edə bilmirəm, nə etməliyəm?</h3>
+                        <p id="hc-content-1-4">Giriş edərkən qarşılaşa biləcəyiniz problemlər və həll təklifləri.</p>
+                        <a href="#" id="hc-link-1-4">Giriş problemləri həlləri</a>
                     </div>
                 </div>
             </details>
             
             <details>
-                <summary>Öğrenci İşleri</summary>
+                <summary>
+                    <span id="hc-main-header-2">Tələbə İşləri</span>
+                    <span class="iconify d180" data-icon="iconamoon:arrow-up-2-bold"></span>
+                </summary>
                 <div class="help-items">
                     <div class="help-item">
-                        <h3>Ders kaydı nasıl yapılır?</h3>
-                        <p>Ders kayıt döneminde izlemeniz gereken adımlar ve dikkat etmeniz gereken noktalar.</p>
-                        <a href="#">Ders kayıt kılavuzu</a>
+                        <h3 id="hc-sub-header-2-1">Dərs qeydiyyatı necə aparılır?</h3>
+                        <p id="hc-content-2-1">Dərs qeydiyyat dövründə izləməniz lazım olan addımlar və diqqət etməniz lazım olan məqamlar.</p>
+                        <a href="#" id="hc-link-2-1">Dərs qeydiyyat təlimatı</a>
                     </div>
                     <div class="help-item">
-                        <h3>Transkript belgesi nasıl alınır?</h3>
-                        <p>Transkript talebi oluşturma ve belgenizi alma süreciyle ilgili bilgiler.</p>
-                        <a href="#">Transkript talep etme</a>
+                        <h3 id="hc-sub-header-2-2">Transkript sənədi necə alınır?</h3>
+                        <p id="hc-content-2-2">Transkript tələbi yaratma və sənədinizi alma prosesi ilə bağlı məlumatlar.</p>
+                        <a href="#" id="hc-link-2-2">Transkript tələb etmə</a>
                     </div>
                     <div class="help-item">
-                        <h3>Öğrenci belgesi nasıl alınır?</h3>
-                        <p>Öğrenci belgesi talebi oluşturma ve belgenizi alma süreciyle ilgili bilgiler.</p>
-                        <a href="#">Öğrenci belgesi talep etme</a>
+                        <h3 id="hc-sub-header-2-3">Tələbə sənədi necə alınır?</h3>
+                        <p id="hc-content-2-3">Tələbə sənədi tələbi yaratma və sənədinizi alma prosesi ilə bağlı məlumatlar.</p>
+                        <a href="#" id="hc-link-2-3">Tələbə sənədi tələb etmə</a>
                     </div>
                     <div class="help-item">
-                        <h3>Derslerimi nasıl değiştirebilirim?</h3>
-                        <p>Ekleme-çıkarma haftasında derslerde değişiklik yapma süreciyle ilgili bilgiler.</p>
-                        <a href="#">Ders değişikliği kılavuzu</a>
+                        <h3 id="hc-sub-header-2-4">Dərslərimi necə dəyişdirə bilərəm?</h3>
+                        <p id="hc-content-2-4">Əlavə-çıxarma həftəsində dərslərdə dəyişiklik etmə prosesi ilə bağlı məlumatlar.</p>
+                        <a href="#" id="hc-link-2-4">Dərs dəyişikliyi təlimatı</a>
                     </div>
                 </div>
             </details>
             
             <details>
-                <summary>Sınav ve Notlandırma</summary>
+                <summary>
+                    <span id="hc-main-header-3">İmtahan və Qiymətləndirmə</span>
+                    <span class="iconify d180" data-icon="iconamoon:arrow-up-2-bold"></span>
+                </summary>
                 <div class="help-items">
                     <div class="help-item">
-                        <h3>Sınav sonuçlarımı nereden görebilirim?</h3>
-                        <p>Sınav sonuçlarınızın yayınlandığı yer ve nasıl erişim sağlayabileceğinize dair bilgiler.</p>
-                        <a href="#">Sınav sonuçlarını görüntüleme</a>
+                        <h3 id="hc-sub-header-3-1">İmtahan nəticələrimi haradan görə bilərəm?</h3>
+                        <p id="hc-content-3-1">İmtahan nəticələrinizin yayımlandığı yer və necə giriş edə biləcəyinizə dair məlumatlar.</p>
+                        <a href="#" id="hc-link-3-1">İmtahan nəticələrini görüntüləmə</a>
                     </div>
                     <div class="help-item">
-                        <h3>Sınav notuma itiraz etmek istiyorum, ne yapmalıyım?</h3>
-                        <p>Sınav notlarına itiraz süreci ve izlemeniz gereken adımlar hakkında bilgiler.</p>
-                        <a href="#">Not itiraz süreci</a>
+                        <h3 id="hc-sub-header-3-2">İmtahan qiymətimə etiraz etmək istəyirəm, nə etməliyəm?</h3>
+                        <p id="hc-content-3-2">İmtahan qiymətlərinə etiraz prosesi və izləməniz lazım olan addımlar haqqında məlumatlar.</p>
+                        <a href="#" id="hc-link-3-2">Qiymət etiraz prosesi</a>
                     </div>
                     <div class="help-item">
-                        <h3>GNO nasıl hesaplanır?</h3>
-                        <p>Genel not ortalamasının nasıl hesaplandığı ve akademik durumunuzu nasıl etkilediği hakkında bilgiler.</p>
-                        <a href="#">GNO hesaplama kılavuzu</a>
+                        <h3 id="hc-sub-header-3-3">ÜOMG necə hesablanır?</h3>
+                        <p id="hc-content-3-3">Ümumi orta qiymətin necə hesablandığı və akademik vəziyyətinizi necə təsir etdiyi haqqında məlumatlar.</p>
+                        <a href="#" id="hc-link-3-3">ÜOMG hesablama təlimatı</a>
                     </div>
                     <div class="help-item">
-                        <h3>Mazeret sınavı başvurusu nasıl yapılır?</h3>
-                        <p>Sınava katılamadığınız durumlarda mazeret sınavı başvurusu yapma süreci.</p>
-                        <a href="#">Mazeret sınavı başvuru adımları</a>
+                        <h3 id="hc-sub-header-3-4">Üzr imtahanı müraciəti necə edilir?</h3>
+                        <p id="hc-content-3-4">İmtahanda iştirak edə bilmədiyiniz hallarda üzr imtahanı müraciəti etmə prosesi.</p>
+                        <a href="#" id="hc-link-3-4">Üzr imtahanı müraciət addımları</a>
                     </div>
                 </div>
             </details>
             
             <details>
-                <summary>Teknik Sorunlar</summary>
+                <summary>
+                    <span id="hc-main-header-4">Texniki Problemlər</span>
+                    <span class="iconify d180" data-icon="iconamoon:arrow-up-2-bold"></span>
+                </summary>
                 <div class="help-items">
                     <div class="help-item">
-                        <h3>Sistem erişim sorunları yaşıyorum</h3>
-                        <p>Sisteme erişimde yaşanan genel sorunlar ve çözüm önerileri.</p>
-                        <a href="#">Erişim sorunları çözümleri</a>
+                        <h3 id="hc-sub-header-4-1">Sistem giriş problemləri yaşayıram</h3>
+                        <p id="hc-content-4-1">Sistemə girişdə yaşanan ümumi problemlər və həll təklifləri.</p>
+                        <a href="#" id="hc-link-4-1">Giriş problemləri həlləri</a>
                     </div>
                     <div class="help-item">
-                        <h3>Tarayıcı uyumluluk sorunları</h3>
-                        <p>Farklı tarayıcılarda yaşanabilecek uyumluluk sorunları ve önerilen tarayıcılar.</p>
-                        <a href="#">Tarayıcı uyumluluk rehberi</a>
+                        <h3 id="hc-sub-header-4-2">Brauzer uyğunluq problemləri</h3>
+                        <p id="hc-content-4-2">Fərqli brauzerlərdə yaşana biləcək uyğunluq problemləri və tövsiyə olunan brauzerlər.</p>
+                        <a href="#" id="hc-link-4-2">Brauzer uyğunluq təlimatı</a>
                     </div>
                     <div class="help-item">
-                        <h3>Sistem çok yavaş çalışıyor</h3>
-                        <p>Sistem performans sorunları ve iyileştirme önerileri.</p>
-                        <a href="#">Performans iyileştirme önerileri</a>
+                        <h3 id="hc-sub-header-4-3">Sistem çox yavaş işləyir</h3>
+                        <p id="hc-content-4-3">Sistem performans problemləri və yaxşılaşdırma təklifləri.</p>
+                        <a href="#" id="hc-link-4-3">Performans yaxşılaşdırma təklifləri</a>
                     </div>
                     <div class="help-item">
-                        <h3>Dosya yükleme sorunları</h3>
-                        <p>Dosya yüklerken karşılaşabileceğiniz sorunlar ve çözüm yolları.</p>
-                        <a href="#">Dosya yükleme sorunları çözümleri</a>
+                        <h3 id="hc-sub-header-4-4">Fayl yükləmə problemləri</h3>
+                        <p id="hc-content-4-4">Fayl yükləyərkən qarşılaşa biləcəyiniz problemlər və həll yolları.</p>
+                        <a href="#" id="hc-link-4-4">Fayl yükləmə problemləri həlləri</a>
                     </div>
                 </div>
             </details>
             
             <details>
-                <summary>İletişim ve Destek</summary>
+                <summary>
+                    <span id="hc-main-header-5">Əlaqə və Dəstək</span>
+                    <span class="iconify d180" data-icon="iconamoon:arrow-up-2-bold"></span>
+                </summary>
                 <div class="help-items">
                     <div class="help-item">
-                        <h3>Teknik destek ekibiyle nasıl iletişime geçebilirim?</h3>
-                        <p>Teknik sorunlar için destek ekibiyle iletişim kurma yöntemleri.</p>
-                        <a href="#">Teknik destek iletişim bilgileri</a>
+                        <h3 id="hc-sub-header-5-1">Texniki dəstək komandası ilə necə əlaqə saxlaya bilərəm?</h3>
+                        <p id="hc-content-5-1">Texniki problemlər üçün dəstək komandası ilə əlaqə qurma üsulları.</p>
+                        <a href="#" id="hc-link-5-1">Texniki dəstək əlaqə məlumatları</a>
                     </div>
                     <div class="help-item">
-                        <h3>Öğrenci işleri ile nasıl iletişime geçebilirim?</h3>
-                        <p>Öğrenci işleri ofisiyle iletişim kurma yöntemleri ve çalışma saatleri.</p>
-                        <a href="#">Öğrenci işleri iletişim bilgileri</a>
+                        <h3 id="hc-sub-header-5-2">Tələbə işləri ilə necə əlaqə saxlaya bilərəm?</h3>
+                        <p id="hc-content-5-2">Tələbə işləri ofisi ilə əlaqə qurma üsulları və iş saatları.</p>
+                        <a href="#" id="hc-link-5-2">Tələbə işləri əlaqə məlumatları</a>
                     </div>
                     <div class="help-item">
-                        <h3>Öneri ve şikayetlerimi nasıl iletebilirim?</h3>
-                        <p>Sistem veya hizmetler hakkında geri bildirim verme yöntemleri.</p>
-                        <a href="#">Geri bildirim formu</a>
+                        <h3 id="hc-sub-header-5-3">Təklif və şikayətlərimi necə çatdıra bilərəm?</h3>
+                        <p id="hc-content-5-3">Sistem və ya xidmətlər haqqında rəy bildirmə üsulları.</p>
+                        <a href="#" id="hc-link-5-3">Rəy bildirmə forması</a>
                     </div>
                     <div class="help-item">
-                        <h3>Acil durumlarda kiminle iletişime geçmeliyim?</h3>
-                        <p>Acil durumlar için iletişim bilgileri ve yönlendirmeler.</p>
-                        <a href="#">Acil durum iletişim bilgileri</a>
+                        <h3 id="hc-sub-header-5-4">Təcili hallarda kimlə əlaqə saxlamalıyam?</h3>
+                        <p id="hc-content-5-4">Təcili hallar üçün əlaqə məlumatları və istiqamətləndirmələr.</p>
+                        <a href="#" id="hc-link-5-4">Təcili hal əlaqə məlumatları</a>
                     </div>
                 </div>
             </details>
         </div>
     </main>
     
-    <footer>
-        © 2025 Üniversite Öğrenci Bilgi Sistemi | Tüm Hakları Saklıdır
+    <footer id="birlab" class="footer">
+        © 2025 Unec & Birlab | Bütün Hüquqlar Qorunur
     </footer>
-    
-    <script>
-        // JavaScript to make sure the first details element is open by default
-        document.addEventListener('DOMContentLoaded', function() {
-            // The first details element is already set to open with the "open" attribute in HTML
-            // This is just to ensure it works in all browsers
-            const firstDetails = document.querySelector('details');
-            if (firstDetails) {
-                firstDetails.setAttribute('open', '');
-            }
-        });
-    </script>
+    <script src="main.js"></script>
+    <script src="../components/js/language.js"></script>
+    <script src="../components/js/theme.js"></script>
 </body>
 </html>

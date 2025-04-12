@@ -18,11 +18,11 @@ document.addEventListener('DOMContentLoaded', () => {
       el.style.cssText = "display: none !important;";
     });
 
-    if (selectedValue === 'İmtahanlar') {
+    if (option.classList.contains('ctg-1-activator')) {
       document.querySelectorAll('.application-ctg-1').forEach(el => {
         el.style.cssText = "display: flex !important;";
       });
-    } else if (selectedValue === 'İmtahana qədər bal') {
+    } else if (option.classList.contains('ctg-2-activator')) {
       document.querySelectorAll('.application-ctg-2').forEach(el => {
         el.style.cssText = "display: flex !important;";
       });

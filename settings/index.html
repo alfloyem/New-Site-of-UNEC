@@ -6,7 +6,7 @@
     <meta name="description" content="Azərbaycan Dövlət Iqtisad Universiteti ( Unec ) Tələbənin Şəxsi Kanineti">
     <meta name="keywords" content="Azərbaycan Dövlət İqtisad Universiteti, UNEC, Tələbə, Şəxsi Kaninet, Tələbənin Şəxsi Kanineti, Sidebar Components, Navigation, Dropdown, Navbar, English: Student Portal, Personal Dashboard, Turkish: Öğrenci Paneli, Yan Menü, Russian: Студенческий кабинет, Навигация, Универсitet, Education, Academic">
     <link rel="icon" href="../components/img/favicon.ico" type="image/x-icon">
-    <title>Profilim</title>
+    <title id="settings">Parametrlər</title>
     <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
     <link rel="stylesheet" href="../components/css/variables/root.css">
     <link rel="stylesheet" href="style.css">
@@ -14,17 +14,17 @@
 <body>
     <nav>
         <a title="back" href="#" onclick="history.back()"><span class="iconify d270" data-icon="iconamoon:arrow-up-2-bold"></span></a>
-        <header>Ayarlar</header>
-        <a style="opacity: 0;"><span class="iconify d270" data-icon="iconamoon:arrow-up-2-bold"></span></a>
+        <header id="settings">Parametrlər</header>
+        <a style="opacity: 0; cursor: default;"><span class="iconify d270" data-icon="iconamoon:arrow-up-2-bold"></span></a>
     </nav>
     <main>
         <div class="settings-section">
-            <div class="section-header">Bildirim Ayarları</div>
-
+            <div class="section-header" id="navbar-notification-header">Bildirişlər</div>
+    
             <div class="setting-item">
                 <div class="setting-info">
-                    <div class="setting-title">E-posta Bildirimleri</div>
-                    <div class="setting-description">Önemli duyurular ve haberler için e-posta bildirimleri alın</div>
+                    <div class="setting-title" id="schedules">Cədvəllər</div>
+                    <div class="setting-description" id="settings-description-1">Dərs cədvəlinizdə dəyişiklik olduqda bildiriş alın</div>
                 </div>
                 <div class="setting-control">
                     <label class="switch">
@@ -33,11 +33,11 @@
                     </label>
                 </div>
             </div>
-
+    
             <div class="setting-item">
                 <div class="setting-info">
-                    <div class="setting-title">SMS Bildirimleri</div>
-                    <div class="setting-description">Acil duyuru ve hatırlatmalar için SMS bildirimleri alın</div>
+                    <div class="setting-title" id="sidebar-header-exams">İmtahanlar</div>
+                    <div class="setting-description" id="settings-description-2">İmtahan tarixləri və nəticələri haqqında bildiriş alın</div>
                 </div>
                 <div class="setting-control">
                     <label class="switch">
@@ -46,11 +46,11 @@
                     </label>
                 </div>
             </div>
-
+    
             <div class="setting-item">
                 <div class="setting-info">
-                    <div class="setting-title">Sınav Sonuçları</div>
-                    <div class="setting-description">Sınav sonuçları girildiğinde bildirim alın</div>
+                    <div class="setting-title" id="sidebar-e-journal">Elektron jurnal</div>
+                    <div class="setting-description" id="settings-description-3">Jurnalınıza yeni qeydlər əlavə edildikdə bildiriş alın</div>
                 </div>
                 <div class="setting-control">
                     <label class="switch">
@@ -59,16 +59,11 @@
                     </label>
                 </div>
             </div>
-        </div>
-
-        <!-- Görünüm Ayarları Section -->
-        <div class="settings-section">
-            <div class="section-header">Görünüm Ayarları</div>
-
+    
             <div class="setting-item">
                 <div class="setting-info">
-                    <div class="setting-title">Karanlık Mod</div>
-                    <div class="setting-description">Koyu arka plan, açık metin</div>
+                    <div class="setting-title" id="sidebar-appeal">Apellyasiya</div>
+                    <div class="setting-description" id="settings-description-4">Apelyasiya müraciətinizin statusu haqqında bildiriş alın</div>
                 </div>
                 <div class="setting-control">
                     <label class="switch">
@@ -77,46 +72,11 @@
                     </label>
                 </div>
             </div>
-
+    
             <div class="setting-item">
                 <div class="setting-info">
-                    <div class="setting-title">Yazı Boyutu</div>
-                    <div class="setting-description">Metin ölçeğini ayarlayın</div>
-                </div>
-                <div class="setting-control">
-                    <select class="setting-select">
-                        <option>Küçük</option>
-                        <option selected>Normal</option>
-                        <option>Büyük</option>
-                        <option>Çok Büyük</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="setting-item">
-                <div class="setting-info">
-                    <div class="setting-title">Dil</div>
-                    <div class="setting-description">Sistem dilini değiştirin</div>
-                </div>
-                <div class="setting-control">
-                    <select class="setting-select">
-                        <option selected>Türkçe</option>
-                        <option>English</option>
-                        <option>Azərbaycanca</option>
-                        <option>Русский</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-
-        <!-- Güvenlik Ayarları Section -->
-        <div class="settings-section">
-            <div class="section-header">Güvenlik Ayarları</div>
-
-            <div class="setting-item">
-                <div class="setting-info">
-                    <div class="setting-title">İki Faktörlü Doğrulama</div>
-                    <div class="setting-description">Hesabınızı ek bir güvenlik katmanıyla koruyun</div>
+                    <div class="setting-title" id="sidebar-header-tasks">Tapşırıqlar</div>
+                    <div class="setting-description" id="settings-description-5">Yeni tapşırıqlar və tarixlər haqqında bildiriş alın</div>
                 </div>
                 <div class="setting-control">
                     <label class="switch">
@@ -125,109 +85,133 @@
                     </label>
                 </div>
             </div>
-
+    
             <div class="setting-item">
                 <div class="setting-info">
-                    <div class="setting-title">Oturum Süresi</div>
-                    <div class="setting-description">Oturumunuzun açık kalma süresini ayarlayın</div>
+                    <div class="setting-title" id="sidebar-header-services">Xidmətlər</div>
+                    <div class="setting-description" id="settings-description-6">Təhsil xidmətləri və yeniliklər haqqında bildiriş alın</div>
+                </div>
+                <div class="setting-control">
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+    
+            <div class="setting-item">
+                <div class="setting-info">
+                    <div class="setting-title" id="career">Kariyera</div>
+                    <div class="setting-description" id="settings-description-7">Təcrübə və iş imkanları haqqında bildiriş alın</div>
+                </div>
+                <div class="setting-control">
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+    
+            <div class="setting-item">
+                <div class="setting-info">
+                    <div class="setting-title" id="survey">Sorğu</div>
+                    <div class="setting-description" id="settings-description-8">Sorğulara cavablar və nəticələr haqqında bildiriş alın</div>
+                </div>
+                <div class="setting-control">
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+    
+            <div class="setting-item">
+                <div class="setting-info">
+                    <div class="setting-title" id="other">Digər</div>
+                    <div class="setting-description" id="settings-description-9">Sistem və digər vacib yeniliklər haqqında bildiriş alın</div>
+                </div>
+                <div class="setting-control">
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    
+        <div class="settings-section">
+            <div class="section-header" id="appearance">Görünüş</div>
+    
+            <div class="setting-item">
+                <div class="setting-info">
+                    <div class="setting-title" id="system-theme">Sistem Teması</div>
+                    <div class="setting-description" id="settings-description-10">Qaranlıq və ya Açıq rejimdən istifadə edəbilərsiniz</div>
                 </div>
                 <div class="setting-control">
                     <select class="setting-select">
-                        <option>15 dakika</option>
-                        <option>30 dakika</option>
-                        <option selected>1 saat</option>
-                        <option>4 saat</option>
-                        <option>24 saat</option>
+                        <option id="auto">Avtomatik</option>
+                        <option id="dark">Qaranlıq</option>
+                        <option id="light">Açıq</option>
                     </select>
                 </div>
             </div>
-
+    
             <div class="setting-item">
                 <div class="setting-info">
-                    <div class="setting-title">Şifre Değiştir</div>
-                    <div class="setting-description">Hesap şifrenizi güncelleyin</div>
+                    <div id="language" class="setting-title">Dil</div>
+                    <div class="setting-description" id="settings-description-11">Sistem dilini dəyişdirin</div>
                 </div>
                 <div class="setting-control">
-                    <button class="button button-secondary" style="margin: 0; padding: var(--clamp-2) var(--clamp-4);">
-                        Şifre Değiştir
-                    </button>
+                    <select class="setting-select">
+                        <option id="lang-az">Azərbaycan</option>
+                        <option id="lang-tr">Türk</option>
+                        <option id="lang-en">English</option>
+                        <option id="lang-ru">Русский</option>
+                    </select>
                 </div>
             </div>
         </div>
-
-        <!-- Tehlikeli Bölge Section -->
-        <div class="settings-section danger-zone">
-            <div class="section-header">Tehlikeli Bölge</div>
-
+    
+        <div class="settings-section">
+            <div class="section-header" id="security">Təhlükəsizlik</div>
+    
             <div class="setting-item">
                 <div class="setting-info">
-                    <div class="setting-title">Veri İndirme</div>
-                    <div class="setting-description">Tüm hesap verilerinizi indirin</div>
+                    <div class="setting-title" id="auto-exit">Avtomatik çıxış</div>
+                    <div class="setting-description" id="settings-description-12">
+                        Giriş etdiyiniz Hesabdan avtomatik şəkildə çıxış edin
+                    </div>
                 </div>
                 <div class="setting-control">
-                    <button class="button button-secondary" style="margin: 0; padding: var(--clamp-2) var(--clamp-4);">
-                        Verileri İndir
-                    </button>
+                    <label class="switch">
+                        <input type="checkbox" id="auto-exit-checkbox">
+                        <span class="slider"></span>
+                    </label>
                 </div>
             </div>
-
-            <div class="setting-item">
+            
+            <div class="setting-item deaktive" id="auto-exit-time-container">
                 <div class="setting-info">
-                    <div class="setting-title">Hesabı Dondur</div>
-                    <div class="setting-description">Hesabınızı geçici olarak devre dışı bırakın</div>
+                    <div class="setting-title" id="auto-exit-time">Avtomatik çıxış müddəti</div>
                 </div>
                 <div class="setting-control">
-                    <button class="danger-button">
-                        Hesabı Dondur
-                    </button>
+                    <select class="setting-select" id="auto-exit-time-select" disabled>
+                        <option id="40-minutes">40 dəqiqə</option>
+                        <option id="80-minutes">80 dəqiqə</option>
+                        <option id="1-hour" selected>1 saat</option>
+                        <option id="4-hours">4 saat</option>
+                        <option id="1-day">1 gün</option>
+                    </select>
                 </div>
             </div>
-        </div>
-
-        <div class="button-container">
-            <button type="button" class="button button-secondary">
-                İptal
-            </button>
-            <button type="submit" class="button button-primary">
-                Değişiklikleri Kaydet
-            </button>
+            
         </div>
     </main>
-
-    <footer class="footer">
-        © 2025 Üniversite Öğrenci Bilgi Sistemi | Tüm Hakları Saklıdır
+    <footer id="birlab">
+        © 2025 Unec & Birlab | Bütün Hüquqlar Qorunur
     </footer>
-
-    <script>
-        // Toggle switches functionality
-        const toggles = document.querySelectorAll('.switch input');
-        toggles.forEach(toggle => {
-            toggle.addEventListener('change', function() {
-                console.log(`Setting changed: ${this.checked ? 'ON' : 'OFF'}`);
-            });
-        });
-
-        // Select functionality
-        const selects = document.querySelectorAll('.setting-select');
-        selects.forEach(select => {
-            select.addEventListener('change', function() {
-                console.log(`Selected: ${this.value}`);
-            });
-        });
-
-        // Save changes button
-        const saveButton = document.querySelector('.button-primary');
-        saveButton.addEventListener('click', function() {
-            alert('Ayarlarınız kaydedildi!');
-        });
-
-        // Cancel button
-        const cancelButton = document.querySelector('.button-secondary');
-        cancelButton.addEventListener('click', function() {
-            if(confirm('Değişiklikleriniz kaydedilmeyecek. Devam etmek istiyor musunuz?')) {
-                window.location.href = 'dashboard.html';
-            }
-        });
-    </script>
+    <script src="main.js"></script>
+    <script src="../components/js/language.js"></script>
+    <script src="../components/js/theme.js"></script>
 </body>
 </html>

@@ -5,7 +5,6 @@ h4 {
 
 table {
   border-radius: var(--clamp-4);
-  background: var(--color-background);
   padding: var(--clamp-2);
   font-size: var(--clamp-4);
   width: 100%;
@@ -20,7 +19,7 @@ thead th {
 th {
   color: var(--color-text-primary);
   cursor: pointer;
-  padding: var(--clamp-2);
+  padding:var(--clamp-4);
   transition: 0.3s ease-in-out;
   flex-grow: 1;
   font-weight: var(--normal);
@@ -91,5 +90,13 @@ tbody th {
     font-weight: bold;
     margin-right: var(--clamp-3);
     text-align: start;
+  }
+
+  tbody tr th {
+    padding: var(--clamp-2);
+    margin-bottom: var(--clamp-2);
+    border: none;
+    font-size: var(--clamp-6);
+    font-weight: var(--medium);
   }
 }

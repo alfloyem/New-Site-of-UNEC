@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-  let defaultFilterValues = new Map();
   let activeDownloadMenu = null;
   
   // 1. Dropdown ve Overflow Yönetimi
@@ -167,18 +166,20 @@ document.addEventListener('DOMContentLoaded', function() {
     togglePopup('upload-popup');
     setTimeout(function () {
       alert(buttonElement.getAttribute("name"));
-    }, 300);
+    });
   };
-
-  
 
   // 6. Reset İşlemi
   function handleResetFilter() {
     document.querySelectorAll('.filter-dropdown').forEach(dropdown => {
-      const defaultVal = defaultFilterValues.get(dropdown);
+      const targetIndex = dropdown.classList.contains('GlobalSemester') ? 2 : 1;
+      let option = dropdown.querySelector(`.dropdown-menu > div:nth-child(${targetIndex})`);
+      if (!option) {
+        option = dropdown.querySelector('.dropdown-menu > div:first-child');
+      }
       const selected = dropdown.querySelector('.selected');
-      selected.textContent = defaultVal.text;
-      selected.dataset.value = defaultVal.value;
+      selected.textContent = option.textContent;
+      selected.dataset.value = option.dataset.value || option.textContent;
     });
     filterTables();
   }
@@ -186,21 +187,11 @@ document.addEventListener('DOMContentLoaded', function() {
   // 7. Başlatıcı
   function initialize() {
     handleResponsive();
-  
-    document.querySelectorAll('.filter-dropdown').forEach(dropdown => {
-      const selected = dropdown.querySelector('.selected');
-      defaultFilterValues.set(dropdown, {
-        text: selected.textContent,
-        value: selected.dataset.value
-      });
-    });
-  
     handleDropdownToggle();
     handleDropdownSelection();
     handleDownloadDropdown();
     handleSorting();
     filterTables();
-  
     document.querySelector('.reset-filter').addEventListener('click', handleResetFilter);
   }
 
@@ -220,20 +211,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // 9. Responsive Tablo Başlıkları
   function setResponsiveLabels() {
-    const table = document.querySelector('table');
-    
-    if (table && table.classList.contains('dont-before-header')) {
-      return;
-    }
-
-    const headers = Array.from(document.querySelectorAll('thead th')).map(th => th.textContent.trim());
-    
-    document.querySelectorAll('tbody td').forEach(td => {
-      const cellIndex = td.cellIndex;
-      td.setAttribute('data-label', headers[cellIndex] || '');
+    const tables = document.querySelectorAll('table');
+    tables.forEach(table => {
+      const headers = Array.from(table.querySelectorAll('thead th')).map(th => th.textContent.trim());
+      const cells = table.querySelectorAll('tbody td');
+      cells.forEach(td => {
+        const cellIndex = td.cellIndex;
+        td.setAttribute('data-label', headers[cellIndex] || '');
+      });
     });
   }
-
+  
   // 10. Ekran Boyutu Değişimini İzleme
   function handleResponsive() {
     setResponsiveLabels();
